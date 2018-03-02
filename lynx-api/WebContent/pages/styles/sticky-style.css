@@ -1,0 +1,24 @@
+
+.nav {
+	/* padding: 25px 0;
+	background-color: slategrey; */
+	position: -webkit-sticky;
+	/* top: 45px; */
+	z-index: 1;
+}
+.header, .nav {
+	text-align: center;
+	color: #fff;
+}
+/* .content {
+	width: 600px;
+	margin: 10px auto 100px;
+} */
+.sticky {
+	position: fixed;  
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	border-top: 0;
+}

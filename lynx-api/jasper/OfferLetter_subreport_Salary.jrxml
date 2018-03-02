@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="OfferLetter1_subreport1" pageWidth="452" pageHeight="802" columnWidth="452" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Calibri" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Calibri" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Calibri" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#A9A9A9">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#A9A9A9">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFEFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#A9A9A9">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#666666">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dsSalaryComponentView">
+		<parameter name="candidateId" class="java.lang.Integer"/>
+		<parameter name="whereSalaryConfigIn" class="java.lang.String"/>
+		<parameter name="TABLE_NAME" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT *
+FROM $P!{TABLE_NAME} INNER JOIN SALARY_CONFIG ON SAL_ID=SALARY_CONFIG.ID WHERE $P!{whereSalaryConfigIn}
+ AND CANDIDATE_ID=$P{candidateId} ORDER BY HEAD_ORDER,COMPONENT_ORDER;]]>
+		</queryString>
+		<field name="ID" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="USER_ID" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="CANDIDATE_ID" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="FIELD_LABEL" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="MONTHLY" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="ANNUAL" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="SUM" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="FIELDTYPE" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="SAL_ID" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="HEAD" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="HEAD_ORDER" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="COMPONENT" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="VALUE" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="VALUE_TYPE" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="AUTO_CALC" class="java.lang.Boolean">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="COMPONENT_ORDER" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="FORMULA" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<group name="headSalaryConfigView">
+			<groupExpression><![CDATA[$F{HEAD}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="CANDIDATE_ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="whereSalaryConfigIdNotin" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="whereSalaryConfigIdIn" class="java.lang.String"/>
+	<parameter name="TABLE_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA["SALARY_DETAILS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="JOININGBONUS" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RELOCATIONALLOWANCE" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RELOCATION_BONUS" class="java.lang.Float">
+		<defaultValueExpression><![CDATA[10001.0f]]></defaultValueExpression>
+	</parameter>
+	<parameter name="JOINING_BONUS" class="java.lang.Float">
+		<defaultValueExpression><![CDATA[15001.0f]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT *
+FROM $P!{TABLE_NAME} INNER JOIN SALARY_CONFIG ON SAL_ID=SALARY_CONFIG.ID WHERE
+$P!{whereSalaryConfigIdNotin} AND CANDIDATE_ID=$P{CANDIDATE_ID} ORDER BY HEAD_ORDER,COMPONENT_ORDER;]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="USER_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CANDIDATE_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FIELD_LABEL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="MONTHLY" class="java.lang.String">
+		<fieldDescription><![CDATA[100]]></fieldDescription>
+	</field>
+	<field name="ANNUAL" class="java.lang.String">
+		<fieldDescription><![CDATA[1000]]></fieldDescription>
+	</field>
+	<field name="SUM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FIELDTYPE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="SAL_ID" class="java.lang.Long">
+		<fieldDescription><![CDATA[45355]]></fieldDescription>
+	</field>
+	<field name="HEAD" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="HEAD_ORDER" class="java.lang.Integer">
+		<fieldDescription><![CDATA[3455]]></fieldDescription>
+	</field>
+	<field name="COMPONENT" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="VALUE" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[5900]]></fieldDescription>
+	</field>
+	<field name="VALUE_TYPE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AUTO_CALC" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="COMPONENT_ORDER" class="java.lang.Integer">
+		<fieldDescription><![CDATA[35435]]></fieldDescription>
+	</field>
+	<field name="FORMULA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="valComponentAnnual" class="java.lang.Float">
+		<variableExpression><![CDATA[com.dikshatech.common.utils.Converter.getComponentAmount($F{ANNUAL})]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0f]]></initialValueExpression>
+	</variable>
+	<variable name="valComponentMonthly" class="java.lang.Float">
+		<variableExpression><![CDATA[com.dikshatech.common.utils.Converter.getComponentAmount($F{MONTHLY})]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0f]]></initialValueExpression>
+	</variable>
+	<variable name="sumHeadMonthly" class="java.lang.Float" resetType="Group" resetGroup="HEAD" calculation="Sum">
+		<variableExpression><![CDATA[$V{valComponentMonthly}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0f]]></initialValueExpression>
+	</variable>
+	<variable name="sumHeadAnnual1" class="java.lang.Float" resetType="Group" resetGroup="HEAD" calculation="Sum">
+		<variableExpression><![CDATA[$V{valComponentAnnual}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0f]]></initialValueExpression>
+	</variable>
+	<variable name="ctcAnnual" class="java.lang.Float" incrementType="Group" incrementGroup="HEAD" calculation="Sum">
+		<variableExpression><![CDATA[$V{sumHeadAnnual1}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0f]]></initialValueExpression>
+	</variable>
+	<variable name="ctcMonthly" class="java.lang.Float" incrementType="Group" incrementGroup="HEAD" calculation="Sum">
+		<variableExpression><![CDATA[$V{sumHeadMonthly}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0f]]></initialValueExpression>
+	</variable>
+	<group name="HEAD" keepTogether="true">
+		<groupExpression><![CDATA[$F{HEAD}]]></groupExpression>
+		<groupHeader>
+			<band>
+				<textField>
+					<reportElement style="SubTitle" stretchType="RelativeToTallestObject" x="7" y="-15" width="105" height="15" forecolor="#333333"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font fontName="Trebuchet MS" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{HEAD}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="5610" y="-213" width="1" height="43"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#999999"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" x="123" y="-19" width="1" height="18"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#000000"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" isPrintRepeatedValues="false" x="352" y="-19" width="1" height="18"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#000000"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="21">
+				<staticText>
+					<reportElement mode="Opaque" x="3" y="-15" width="450" height="17" backcolor="#CCCCCC"/>
+					<box>
+						<bottomPen lineWidth="0.75" lineColor="#000000"/>
+					</box>
+					<textElement/>
+					<text><![CDATA[ ]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="SubTitle" stretchType="RelativeToTallestObject" x="329" y="-15" width="11" height="15" forecolor="#333333"/>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font fontName="Trebuchet MS" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{HEAD}]]></textFieldExpression>
+				</textField>
+				<textField pattern="¤ #,##0.00">
+					<reportElement style="Detail" stretchType="RelativeToTallestObject" x="355" y="-13" width="95" height="14"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Trebuchet MS" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Float"><![CDATA[$V{sumHeadAnnual1}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="123" y="-15" width="1" height="23"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#000000"/>
+					</graphicElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="30" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="3" y="1" width="450" height="23" isPrintInFirstWholeBand="true" backcolor="#0B3861"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#08088A"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="352" y="0" width="1" height="28"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="3" y="0" width="450" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="3" y="24" width="450" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="452" y="1" width="1" height="23"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="3" y="1" width="1" height="23"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="107" y="5" width="185" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Components]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="373" y="5" width="67" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#0033FF"/>
+				<textElement textAlignment="Right">
+					<font fontName="Trebuchet MS" size="11"/>
+				</textElement>
+				<text><![CDATA[Per Annum]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="124" y="-13" width="329" height="17" backcolor="#FFFFFF"/>
+				<box>
+					<bottomPen lineWidth="0.75" lineColor="#000000"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="127" y="-12" width="215" height="14"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Trebuchet MS" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{COMPONENT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00" isBlankWhenNull="true">
+				<reportElement style="Detail" stretchType="RelativeToTallestObject" x="355" y="-12" width="99" height="13"/>
+				<textElement textAlignment="Center" rotation="None" lineSpacing="Single">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Float"><![CDATA[$V{valComponentAnnual}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="453" y="-39" width="1" height="59"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="123" y="-15" width="1" height="34"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" mode="Transparent" x="352" y="-13" width="1" height="22"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="352" y="-39" width="1" height="59"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="-39" width="1" height="59"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="50" splitType="Immediate">
+			<staticText>
+				<reportElement mode="Opaque" x="3" y="-20" width="450" height="20" isPrintInFirstWholeBand="true" backcolor="#0B3861"/>
+				<box>
+					<bottomPen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="123" y="-41" width="1" height="41"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="352" y="-37" width="1" height="37"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="SubTitle" positionType="FixRelativeToBottom" x="9" y="-16" width="109" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF">
+					<printWhenExpression><![CDATA[($P{RELOCATIONALLOWANCE}!=0 || $P{JOININGBONUS}!=0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" markup="none">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Cost To Company]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement style="Detail" x="357" y="-15" width="91" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF">
+					<printWhenExpression><![CDATA[($P{RELOCATIONALLOWANCE}!=0 || $P{JOININGBONUS}!=0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Float"><![CDATA[(float)(java.lang.Math.round(($V{ctcAnnual}/10.0)*10))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="SubTitle" x="266" y="-16" width="76" height="15" isPrintInFirstWholeBand="true" forecolor="#FFFFFF">
+					<printWhenExpression><![CDATA[($P{RELOCATIONALLOWANCE}!=0 || $P{JOININGBONUS}!=0)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" markup="none">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A+B+C+D]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="453" y="-37" width="1" height="38"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="-33" width="1" height="34"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

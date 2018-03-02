@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1"/>
+	<parameter name="ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT HOLIDAY_NAME,DATE_PICKER FROM HOLIDAYS WHERE CAL_ID =$P{ID}]]>
+	</queryString>
+	<field name="HOLIDAY_NAME" class="java.lang.String"/>
+	<field name="DATE_PICKER" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="101" splitType="Stretch">
+			<image>
+				<reportElement x="425" y="11" width="50" height="49"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/imageHr.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="24" y="0" width="300" height="90"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/logo.png"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="24" y="75" width="451" height="26" backcolor="#D65421"/>
+			</rectangle>
+			<textField>
+				<reportElement x="324" y="75" width="100" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["DATE"+" "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="75" width="148" height="26"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["HOLIDAYS LIST"+" "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="24" y="1" width="451" height="19"/>
+			</rectangle>
+			<textField>
+				<reportElement x="93" y="0" width="148" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{HOLIDAY_NAME}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="278" y="0" width="197" height="20" isPrintWhenDetailOverflows="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{DATE_PICKER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="277" y="1" width="1" height="19"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

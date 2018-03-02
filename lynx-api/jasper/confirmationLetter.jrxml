@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="confirmationLetter.jrxml" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DESIGNATION" class="java.lang.String"/>
+	<parameter name="EMPLOYEE_NAME" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select count(*) as number_of_tables]]>
+	</queryString>
+	<field name="number_of_tables" class="java.lang.Long"/>
+	<background>
+		<band splitType="Prevent"/>
+	</background>
+	<title>
+		<band height="7" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="108" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="0" width="242" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineColor="#827979"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="18" y="11" width="216" height="65"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="35" y="76" width="209" height="32"/>
+				<textElement>
+					<font fontName="Calibri" size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["envision. empower. evolve"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="244" y="0" width="311" height="107" backcolor="#FF7500"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="styled">
+					<font fontName="Calibri" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" <b>Resource Management Group</b>"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="0" width="1" height="107"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineColor="#827979"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="384" splitType="Stretch">
+			<printWhenExpression><![CDATA[true]]></printWhenExpression>
+			<rectangle>
+				<reportElement x="1" y="-1" width="554" height="385"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineColor="#827979"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="61" width="509" height="20"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Subject: Employment Confirmation letter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="153" width="509" height="16"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Diksha Congratulates and wishes you all the very best for a mutually rewarding association.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="18" y="23" width="133" height="20">
+					<printWhenExpression><![CDATA[$P{EMPLOYEE_NAME}!=null]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Dear "+$P{EMPLOYEE_NAME}+","]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="191" width="197" height="39"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Yours sincerely,
+
+For Diksha Technologies Pvt. Ltd.,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="243" width="226" height="44"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Shambhavi .H.S
+
+Senior Manager-RMG ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="299" width="508" height="28"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[NOTE:
+This Confirmation Letter is computer generated advice and does not require any signature.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="18" y="345" width="507" height="20" forecolor="#35730C"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<text><![CDATA[Let’s be Eco-Friendly I Please do not print this email unless it is absolutely necessary.]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="18" y="95" width="507" height="45"/>
+				<textElement markup="styled">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Consequent to the review of your performance during probation period, we have the pleasure in informing that your service has been confirmed to the position of \""+$P{DESIGNATION}+"\". All the other terms and conditions as detailed in the appointment letter including commercials remain unchanged."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

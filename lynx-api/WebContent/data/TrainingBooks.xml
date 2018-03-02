@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<actionForm>	
+		<book>
+			<id>1</id>
+			<categoryName>Telecom</categoryName>
+			<name>Introduction to OSS_BSS</name>
+			<description>Introduction to OSS/BSS. It illustrates the benefits of an approach to OSS/BSS. The shift from legacy systems into component-based OSS and BSS solutions.  </description>
+			<author>Herbert Schildt</author>			
+			<url>/DikshaPortalv2.0/data/book/Introduction_to_OSS_BSS.pdf</url>
+		</book>
+<!-- 		<book> -->
+<!-- 			<id>2</id> -->
+<!-- 			<categoryName>XML/Database</categoryName> -->
+<!-- 			<name>Oracle 10g XML Fundamentals</name> -->
+<!-- 			<description>        						 -->
+<!-- 					 # Create XML documents -->
+<!-- 					 # Validate XML documents by using standard XML techniques -->
+<!-- 				     # Transform XML documents by using stylesheets and XPath expressions -->
+<!-- 				     # Store and query XML in an Oracle database -->
+<!-- 				     # Generate XML from an Oracle database -->
+<!-- 				     # Use Oracle XDK tools and utilities	 -->
+<!-- 			</description>			 -->
+<!-- 			<url>/DikshaPortalv2.0/data/book/</url> -->
+<!-- 		</book>	 -->
+		<book>
+			<id>2</id>
+			<categoryName>UNIX</categoryName>
+			<name>Introduction_to_Shell_scripting</name>
+			<description>Basic and first level of learning Shell scripting</description>			
+			<url>/DikshaPortalv2.0/data/book/Introduction_to_Shell_scripting.pdf</url>
+		</book>
+		<book>
+			<id>3</id>
+			<categoryName>Telecom</categoryName>
+			<name>Intro_to_telecom_billing</name>
+			<description>Introduction to Telecom Billing and its terminologies</description>
+			<password>[Password: smile]</password>			
+			<url>/DikshaPortalv2.0/data/book/intro_to_telecom_billing.pdf</url>
+		</book>	
+		<book>
+			<id>4</id>
+			<categoryName>Technology</categoryName>
+			<name>Mobile Access Networks </name>
+			<description>Mobile Access Networks
+					# GSM
+					# GPRS
+					# EDGE
+					# UMTS</description>						
+			<url>/DikshaPortalv2.0/data/book/Mobile_Access_Networks.pdf</url>
+		</book>	
+		<book>
+			<id>5</id>
+			<categoryName>Technology</categoryName>
+			<name>Architectural_strategies_for_Cloud_Computing</name>
+			<description>Cloud computing is the convergence and evolution of several concepts from virtualization, distributed application design, grid, and enterprise IT management to enable a more flexible approach for deploying and scaling applications.</description>						
+			<url>/DikshaPortalv2.0/data/book/Architectural_strategies_for_Cloud_Computing.pdf</url>
+		</book>	
+		<book>
+			<id>6</id>
+			<categoryName>Technology</categoryName>
+			<name>Insight_on_CAMEL</name>
+			<description>The CAMEL is a network feature and not a supplementary service. It is a tool for the network operator to provide the subscribers with the operator specific  services even when roaming in the another network.</description>						
+			<url>/DikshaPortalv2.0/data/book/Insight_on_CAMEL.pdf</url>
+		</book>				
+		<book>
+			<id>7</id>
+			<categoryName>Telecom</categoryName>
+			<name>Overview_on_Cellular_Communications</name>
+			<description>Overview on Cellular Communications</description>						
+			<url>/DikshaPortalv2.0/data/book/Overview_on_Cellular_Communications.pdf</url>
+		</book>	
+		<book>
+			<id>8</id>
+			<categoryName>Database</categoryName>
+			<name>Hands_on_DB2_V8.1</name>
+			<description>Learning DB2 and its features</description>						
+			<url>/DikshaPortalv2.0/data/book/Hands_on_DB2_V8.1.pdf</url>
+		</book>	
+		<book>
+			<id>9</id>
+			<categoryName>Telecom</categoryName>
+			<name>Funda_of_telecom</name>
+			<description>Topics:
+				#History and Regulation of the Telecom Industry
+				# Network
+				# Switching Technology
+				# Transmission Media
+				# Transmission Technology
+				# Broadband Access and Service
+				# Wireless</description>						
+			<url>/DikshaPortalv2.0/data/book/Funda_of_telecom.pdf</url>
+		</book>	
+		<book>
+			<id>10</id>
+			<categoryName>Technology</categoryName>
+			<name>eTOM_and_NGOSS_Fundamentals-A_Hands_On_Approach</name>
+			<description>Fundamentals on eTOM and NGOSS</description>						
+			<url>/DikshaPortalv2.0/data/book/eTOM_and_NGOSS_Fundamentals-A_Hands_On_Approach.pdf</url>
+		</book>	
+		<book>
+			<id>11</id>
+			<categoryName>Java</categoryName>
+			<name>Thinking in Java</name>
+			<description>Fundamentals of Java</description>						
+			<url>/DikshaPortalv2.0/data/book/Thinking in Java.pdf</url>
+		</book>	
+		<book>
+			<id>12</id>
+			<categoryName>Technology</categoryName>
+			<name>IPTV_Basics</name>
+			<description>Basic fundamentals on IPTV</description>						
+			<url>/DikshaPortalv2.0/data/book/IPTV_Basics.pdf</url>
+		</book>	
+		<book>
+			<id>13</id>
+			<categoryName>Technology</categoryName>
+			<name>OSS_at_a_glance</name>
+			<description>Overview on Operation Support System</description>						
+			<url>/DikshaPortalv2.0/data/book/OSS_at_a_glance.pdf</url>
+		</book>	
+		<book>
+			<id>14</id>
+			<categoryName>Telecom</categoryName>
+			<name>Intelligent_Network</name>
+			<description>Overview of Advanced Intelligent Network</description>						
+			<url>/DikshaPortalv2.0/data/book/Intelligent_Network.pdf</url>			
+		</book>	
+</actionForm>

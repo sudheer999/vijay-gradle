@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<photos>
+	<photo id="1" text="/DikshaPortalv2.0/data/gallery/Awards_Celebrations/"
+	title="AwardsCelebrations"
+	thumb="/DikshaPortalv2.0/data/gallery/Awards_Celebrations/1h.jpg"
+	image="/DikshaPortalv2.0/data/gallery/Awards_Celebrations/1.jpg"
+	url="/DikshaPortalv2.0/data/gallery/awards_celebration.xml" />
+	<photo id="2"
+	title="Team Outings" text="/DikshaPortalv2.0/data/gallery/Team_Outings/"
+	thumb="/DikshaPortalv2.0/data/gallery/Team_Outings/1h.jpg"
+	image="/DikshaPortalv2.0/data//gallery/Team_Outings/1.jpg" 
+	url="/DikshaPortalv2.0/data/gallery/team_outings.xml" />
+	<photo id="3" 
+	title="US Office" text="/DikshaPortalv2.0/data/gallery/US_Office/"
+	thumb="/DikshaPortalv2.0/data/gallery/US_Office/1h.jpg"
+	image="/DikshaPortalv2.0/data/gallery/US_Office/1.jpg" 
+	url="/DikshaPortalv2.0/data/gallery/US_Office.xml" />
+	<photo id="4"
+	title="Xmas 2011" text="/DikshaPortalv2.0/data/gallery/Xmas_2011/"
+	thumb="/DikshaPortalv2.0/data/gallery/Xmas_2011/1h.jpg"
+	image="/DikshaPortalv2.0/data/gallery/Xmas_2011/1.jpg" 
+	url="/DikshaPortalv2.0/data/gallery/Xmas_2011.xml" />	
+	<photo id="5"
+	title="Decennial Awards 2012" text="/DikshaPortalv2.0/data/gallery/Decennial_Awards_2012/"
+	thumb="/DikshaPortalv2.0/data/gallery/Decennial_Awards_2012/1.jpg"
+	image="/DikshaPortalv2.0/data/gallery/Decennial_Awards_2012/1.jpg" 
+	url="/DikshaPortalv2.0/data/gallery/Decennial_Awards_2012.xml" />
+	
+	<photo id="6"
+	title="Xmas 2012" text="/DikshaPortalv2.0/data/gallery/Xmas_2012/"
+	thumb="/DikshaPortalv2.0/data/gallery/Xmas_2012/1.jpg"
+	image="/DikshaPortalv2.0/data/gallery/Xmas_2012/1.jpg" 
+	url="/DikshaPortalv2.0/data/gallery/Xmas_2012.xml" />
+	
+</photos>
+
+

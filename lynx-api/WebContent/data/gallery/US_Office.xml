@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<photos>
+	<photo id="1" 
+	title="US Office"
+	thumb="/DikshaPortalv2.0/data/gallery/US_Office/1t.jpg"
+	image="/DikshaPortalv2.0/data/gallery/US_Office/1.jpg" />
+	<photo id="2"
+	title="Team Outings"
+	thumb="/DikshaPortalv2.0/data/gallery/US_Office/2t.jpg"
+	image="/DikshaPortalv2.0/data/gallery/US_Office/2.jpg" />
+	<photo id="3"
+	title="Team Outings"
+	thumb="/DikshaPortalv2.0/data/gallery/US_Office/3t.jpg"
+	image="/DikshaPortalv2.0/data/gallery/US_Office/3.jpg" />	
+	<photo id="4"
+	title="Team Outingss"
+	thumb="/DikshaPortalv2.0/data/gallery/US_Office/4t.jpg"
+	image="/DikshaPortalv2.0/data/gallery/US_Office/4.jpg" />
+	<photo id="5"
+	title="Team Outings"
+	thumb="/DikshaPortalv2.0/data/gallery/US_Office/5t.jpg"
+	image="/DikshaPortalv2.0/data/gallery/US_Office/5.jpg" />	
+</photos>
+
+
+

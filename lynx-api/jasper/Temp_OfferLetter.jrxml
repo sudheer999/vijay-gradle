@@ -1,0 +1,1468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Offer" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="5629"/>
+	<style name="Style_1"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FF8512"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FF8512"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FF8512"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FF8512"/>
+		</box>
+	</style>
+	<subDataset name="dataset1">
+		<parameter name="CANDIDATE_ID" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[select FIELD_LABEL,MONTHLY,ANNUAL,SUM FROM SALARY_FOR_APPROVAL WHERE CANDIDATE_ID=$P{CANDIDATE_ID}]]>
+		</queryString>
+		<field name="FIELD_LABEL" class="java.lang.String"/>
+		<field name="MONTHLY" class="java.lang.String"/>
+		<field name="ANNUAL" class="java.lang.String"/>
+		<field name="SUM" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset2"/>
+	<subDataset name="OneTImePaymentDataset" whenResourceMissingType="Empty">
+		<parameter name="CANDIDATE_ID" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     *
+FROM
+     `SALARY_INFO` SALARY_INFO
+WHERE
+     BASIC = $P{CANDIDATE_ID}]]>
+		</queryString>
+		<field name="ID" class="java.lang.Integer"/>
+		<field name="BASIC" class="java.lang.Integer"/>
+		<field name="HRA" class="java.lang.Integer"/>
+		<field name="CONVEYANCE" class="java.lang.Integer"/>
+		<field name="MEDICAL_ALLOWANCE" class="java.lang.Integer"/>
+		<field name="SPECIAL_ALLOWANCE" class="java.lang.Integer"/>
+		<field name="PF_EMP_CONTRIBUTION" class="java.lang.Integer"/>
+		<field name="ANNUAL_INCENTIVE" class="java.lang.Integer"/>
+		<field name="RELOCATION_BONUS" class="java.lang.String"/>
+		<field name="JOINING_BONUS_STRING" class="java.lang.String"/>
+		<field name="JOINING_BONUS_DATE" class="java.lang.String"/>
+		<field name="PAYMENT_TERMS" class="java.lang.String"/>
+		<field name="PERDIEM_STRING" class="java.lang.String"/>
+		<field name="TOTAL_SALARY" class="java.lang.Integer"/>
+		<field name="MEDI_CLAIM_POLICY" class="java.lang.Integer"/>
+		<field name="PER_ACCIDENT_POLICY" class="java.lang.Integer"/>
+	</subDataset>
+	<subDataset name="dataset3"/>
+	<subDataset name="dataset4"/>
+	<subDataset name="dataset5">
+		<parameter name="CANDIDATE_ID" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[SELECT
+     *
+FROM
+     `SALARY_FOR_APPROVAL` SALARY_FOR_APPROVAL
+WHERE
+     CANDIDATE_ID = $P{CANDIDATE_ID}
+ AND FIELDTYPE = '2_1']]>
+		</queryString>
+		<field name="ID" class="java.lang.Integer"/>
+		<field name="USER_ID" class="java.lang.Integer"/>
+		<field name="CANDIDATE_ID" class="java.lang.Integer"/>
+		<field name="FIELD_LABEL" class="java.lang.String"/>
+		<field name="MONTHLY" class="java.lang.String"/>
+		<field name="ANNUAL" class="java.lang.String"/>
+		<field name="SUM" class="java.lang.String"/>
+		<field name="FIELDTYPE" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset6"/>
+	<subDataset name="dataset7"/>
+	<subDataset name="dataset8"/>
+	<subDataset name="dataset9"/>
+	<subDataset name="dataset10"/>
+	<parameter name="CANDIDATE_ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PERDIEM" class="java.lang.Integer"/>
+	<parameter name="LTA" class="java.lang.Integer"/>
+	<parameter name="PLB" class="java.lang.Integer"/>
+	<parameter name="JOININGBONUS" class="java.lang.Integer"/>
+	<parameter name="RETENTIONBONUS" class="java.lang.Integer"/>
+	<parameter name="RELOCATIONALLOWANCE" class="java.lang.Integer"/>
+	<parameter name="P5" class="java.lang.Integer"/>
+	<parameter name="P6" class="java.lang.Integer"/>
+	<parameter name="P7" class="java.lang.Integer"/>
+	<parameter name="P8" class="java.lang.Integer"/>
+	<parameter name="P9" class="java.lang.Integer"/>
+	<parameter name="P10" class="java.lang.Integer"/>
+	<parameter name="P11" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT FIRST_NAME,LAST_NAME,DATE_OF_JOINING ,DESIGNATION,LABEL,SUM
+FROM CANDIDATE C
+LEFT JOIN PROFILE_INFO PI ON PI.ID = C.PROFILE_ID
+LEFT JOIN LEVELS L ON PI.LEVEL_ID = L.ID
+LEFT JOIN SALARY_DETAILS SD ON SD.CANDIDATE_ID = C.ID
+WHERE C.ID=$P{CANDIDATE_ID} AND SD.SUM IS NOT NULL]]>
+	</queryString>
+	<field name="FIRST_NAME" class="java.lang.String"/>
+	<field name="LAST_NAME" class="java.lang.String"/>
+	<field name="DATE_OF_JOINING" class="java.sql.Date"/>
+	<field name="DESIGNATION" class="java.lang.String"/>
+	<field name="LABEL" class="java.lang.String"/>
+	<field name="SUM" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="1" width="595" height="3" forecolor="#FFFFFF" backcolor="#FF8512"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="720" splitType="Stretch">
+			<textField>
+				<reportElement x="9" y="521" width="540" height="56"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="12" isBold="false" isItalic="false" isUnderline="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We are in no doubt that you are fully aware of the scope, responsibility and challenge inherent in this job. With your education and experience, we are sure that you will find your employment with us very rewarding and satisfying. Please sign the duplicate copy of this employment letter as token of your acceptance of the appointment and the terms and the conditions."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="229" width="20" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["4."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="293" width="20" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["5."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="229" width="526" height="59"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Salary Review and Career Progression: Your salary will be reviewed periodically as per company policy. Your growth in the Company and increase in salary will solely depend on your performance and contribution to the Company. Diksha has a broad-banded, Role and competency based structure and all Roles are mapped on to 8 Job Levels."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="623" width="119" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Yours sincerely,"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="386" width="526" height="60"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Your employment will be governed by the rules, regulations and policies of the Company. This letter and accompanying annexures will summarize significant matters pertaining to your employment with current benefits, which are provided to the employees here at Diksha Technologies. The other terms "+"&amp;"+" conditions of employment are enclosed in Annexure 1A and Annexure 1B. "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="293" width="526" height="63"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Leave and Holidays: Local and public holidays recognized by Diksha are published in Diksha intranet portal and distributed annually by the company. You shall be eligible for 20 working days leave per annum which would be credited on a pro-rated basis to the employee on the first day of the Month. Please refer to the Leave Policy for more details."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="361" width="20" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["6."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="583" width="535" height="16"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We are delighted that you have chosen us. Welcome to Diksha Technologies!"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="451" width="20" height="20"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["8."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="451" width="526" height="63"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Onboarding: We have an orientation program on your day of joining, which will provide you with a brief overview of Diksha, its Policies and Practices. In our endeavour to implement innovative and best practices, relegate logistical hassles and provide personalized attention, HR SPOC (Single Point of Contacts) will be identified for each employee in the organization."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="386" width="20" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["7."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="361" width="526" height="20"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Retirement at the age of 58."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="23" y="112" width="526" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date of Appointment: Your employment with us takes effect from "+com.dikshatech.common.utils.Converter.returnDate($F{DATE_OF_JOINING})+"."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="72" width="543" height="35"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["You are appointed as a "+$F{DESIGNATION}+" at Diksha Technologies Pvt. Ltd (hereafter referred to as “Diksha” or “company”) on the following terms and conditions:"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="18" width="223" height="23"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FIRST_NAME}+" "+$F{LAST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="6" y="46" width="166" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Dear "+ $F{FIRST_NAME}+","]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="12" width="121" height="20"/>
+				<textElement textAlignment="Right" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Bangalore"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="112" width="20" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["1."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="1" width="40" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["To,"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="136" width="526" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Probation: You shall be on probation for a period of Six months from the date of your joining."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="137" width="20" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["2."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="24" y="161" width="526" height="63"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="12" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Compensation: Effective upon commencement of your employment at Diksha. The details of salary, all company paid allowances and other benefits are outlined in Annexure 2 (Salary Stack-up) and subject to conditions detailed. Your salary "+"&amp;"+" terms of this offer letter shall remain confidential and are not to be disclosed to any third party."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="6" y="161" width="20" height="20"/>
+				<textElement rotation="None">
+					<font fontName="Calibri" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["3."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="306" y="680" width="207" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name: "+$F{FIRST_NAME}+" "+$F{LAST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="680" width="187" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Shambhavi.H.S"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="694" width="187" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="306" y="642" width="187" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Accepted By :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="642" width="187" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For Diksha Technologies Pvt. Ltd.,"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="694" width="187" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Senior Manager - RMG "]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="428" y="-1" width="121" height="15"/>
+				<textElement textAlignment="Right" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="720">
+			<textField>
+				<reportElement x="23" y="49" width="521" height="283"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Responsibility:</u></b> You understand and agree that you owe to the Company an obligation to use your best efforts at all times and have a duty of loyalty to the employer. The roles, responsibilities and duties appropriate to your designation or your employment, will be specified by Company from time to time. Company may at any time, in its sole discretion, upon notice to you, alter or otherwise modify these roles, responsibilities and duties. Further, at any time, you may be required to provide services, directly or indirectly, to Company and its affiliates and their employees, contractors, customers and clients. The employee understands and expressly acknowledges that soliciting, negotiating, contacting, either directly or indirectly, company’s customer/client or any other entity engaged in, or to be engaged in, the business of IT services, consulting, systems analysis or networking, while employed with and being compensated by the Company, shall be deemed to be a breach of the employee’s duty of loyalty to the Company and a breach of this Agreement and shall entitle the Company to liquidate damages as deemed fit by Diksha Technologies"+"\n\n"+"Further, you agree and acknowledge that you has a duty and will disclose the existence of this agreement and explain its restrictions to any person, entity or company that may approach, discuss, suggest or otherwise broach in any manner, employment with you. You hereby acknowledge that you are in a position of trust in performing the duties that result from this employment and expressly represents and warrants that you have no criminal felony convictions involving drugs, theft or violent behavior within the immediate past five (5) years. Further, you expressly authorize the Company directly or through its agents to conduct complete background checks to verify your above-stated representations."+"\n\n"+"In view of the responsibility entrusted, employee must effectively perform to ensure results. You shall be expected “to do what it takes” to ensure that you deliver high-quality work / commitments made to Diksha and its clients. On business requirement, you may be required to work out of Diksha or its affiliate’s client office/site from time to time. During such a deployment you will be required to align your daily working hours and/or regular work week as per the client’s working norms. You may also be required to work in shifts or extended hours depending on the project, client and organizational requirements."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="49" width="14" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["1."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="167" y="24" width="257" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" size="10" isBold="true" isUnderline="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Other Terms and Conditions of Employment"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="335" width="521" height="61"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Company’s Right to Information:</u></b> You are requested to keep the company informed of any changes related to personal particulars like name, address, contact telephone number, additional qualifications, passport, visa, marital status etc. Any false or misrepresented information or any willfully suppressed material information can lead to your termination from the services of the company, without any notice."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="335" width="14" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["2."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="25" y="400" width="520" height="79"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Transfer and Deputation: </u></b> You acknowledge and agree that you may be assigned, transferred or deputed to offices, departments or units of Company and/or its affiliates and/or their contractors and clients, whether in India or abroad. In the event of any such assignment, transfer or deputation, you may be required to consent to and/or agree to certain other agreements or policies applicable to such an assignment, deputation or transfer. In the event of such transfers, your compensation, benefits or other terms and conditions of employment remains unaffected, but necessary allowances / expenses may be reimbursed as per existing company policies applicable from time to time."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="400" width="14" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["3."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="485" width="520" height="143"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Accountability:</u></b> You acknowledge that you will comply with all of Company’s policies and standards (including the Company’s Code of Conduct and Business Ethics) in effect from time to time and you shall perform your services in a professional manner and in a manner consistent with the ethical and professional standards of the Company or otherwise as applicable to the services provided by you hereunder. As an employee of Diksha Technologies, you have been vested with certain  powers "+"&amp;"+" authority to help you carry out your responsibilities effectively. You will be accountable and responsible for all your acts performed that are not in the interest of the Company irrespective of whether it has been caused by negligence, carelessness, oversight, ignorance of the policies "+"&amp;"+" procedures of the Company, or caused by willful acts against the interests of the company including any misuse of powers and authority. If you are found to be acting against the interest of the company, Diksha Technologies reserves the right to take all actions permissible under law, including recovery of three months salary and any monetary loss to the company due to your actions, even after separation due to resignation or termination."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="485" width="14" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["4."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="720">
+			<textField>
+				<reportElement x="24" y="53" width="520" height="228"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Consequences of Termination:</u></b> Your employment will be terminated immediately without any notice for “cause”. For purposes of this Agreement, “cause” shall be defined as: (a) Failure, unwillingness or inability for a continuous period of more than three (3) days, to perform the work for which, or to which you have been engaged or assigned; (b) Falsely representing credentials, qualifications or abilities; (c) Failure, unwillingness or inability to obey or to follow any reasonable or professionally-appropriate directions or instructions of the Company or its customer or clients for whom the Employee is working or been directed to perform services, including but not limited to attendance, promptness, professionalism, cooperation and dress code requirements; or, more generally, failure or unwillingness to report to, interview with or voluntarily, reasonably and satisfactorily attend and/or complete an initial interview with a client when reasonably requested to do so by the Employer. The Employee expressly acknowledges, understands and agrees that the selection of the assignment, project or client site is within the sole discretion and judgment of the Employer. The Employee expressly acknowledges, agrees and understands that his/her failure or unwillingness to report to an assignment, project or client site reasonably designated by the Employer, or to perform in a reasonably satisfactory manner once assigned – will be grounds for termination “for cause” if such failure, unwillingness or unsatisfactory performance is not cured within Three (3) business days thereof and shall entitle the Employer to immediately terminate the Employee and invoke any and all provisions otherwise of this Agreement; and (d) any other disqualification or impropriety, including but not limited to, conviction for a crime or engaging in other wrongful acts; and (e) failure of the background verification. Termination “for cause” as defined above shall entitle the Company to pursue all remedies and recourse as provided and reserved under this Agreement, including but not limited to those identified Under Clause 4."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="53" width="14" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["5."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="24" y="282" width="520" height="42"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Cessation:</u></b> Employee understands that employment with the Company is on an “at-will” basis.  The Company may terminate employment by providing one (1) month advance written notice of termination, except that no advance or written notice is required if Employee is terminated for “cause” mentioned in clause 4 and 5."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="325" width="521" height="188"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Notice period:</u></b> You may terminate your employment by giving the Company Ninety (90) days advance written notice. Employee expressly acknowledges that at least ninety (90) days advance notice is reasonable and necessary because of the substantial time, effort and expense the Company will incur in replacing your services and/or acclimating another Employee to the same or similar position. Thereafter providing such notice, approval of any request for early release and/or any kind of waiver will be granted at the sole discretion of the Company and will be subject to terms and conditions of the Company, including and not limiting to the recovery in lieu of notice period not served."+"\n\n"+"Employee understands and expressly acknowledges that every project obtained by the Company is unique in nature and that should Employee fail to abide by his/her representations that he/she will provide adequate and fair notice as those terms are defined hereunder, the Company will suffer significant and extensive damage, including training of replacements, job interruption and consequential damages in the nature of loss of goodwill and substantial loss of income should a project be terminated or interrupted as the direct consequence of the Employee’s breach of this Agreement. Employee understands and expressly acknowledges that the Company has and will continue to have a continuing relationship with its customers, clients and end users and upon the Employee’s acknowledgment and his/her representations that employee will abide by this Agreement, the Company has agreed to enter into this agreement with the Employee’s full consent."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="325" width="14" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["7."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="282" width="14" height="20"/>
+				<textElement>
+					<font fontName="Calibri" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["6."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="17" y="683" width="279" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name: <b> "+$F{FIRST_NAME}+"  "+$F{LAST_NAME}+"</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="661" width="59" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Signature:"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="577" width="533" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="17" y="583" width="527" height="33"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["I have read, understood and agree to the terms and conditions as set forth in these Terms of Employment. I accept the offer of employment on the terms and conditions mentioned in the above letter."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="17" y="705" width="59" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="720">
+			<textField>
+				<reportElement x="53" y="505" width="491" height="44"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For an employee or any dependent member of his/her family to accept commission, a share in profits or other payments, loans (other than with established banking or financial institutions), services, from any individual or organization doing or seeking to do business with the company."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="128" width="514" height="170"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Conflicting Rights and Obligations:</u></b> You agree that your employment with Diksha Technologies will not violate or conflict with any obligations or agreement (oral or otherwise) that you may have with former employers or any other person(s) or to which you are or have been a party to. You also warranty that you have not and will not disclose to the Company any materials or documents or any confidential information or proprietary information obtained from a former employer or any third party or otherwise. You agree that you have satisfactorily completed all of your obligations under any employment or other contract or agreement with company(ies), person(s) or entity(ies) that previously employed or contracted with you and that any previous employment contract and/or relationships have terminated and/or expired prior the effective start date at the Company. You are required to list all such obligations, if any, as of date, in space provided at the end of this document. If nothing is listed, the Company may conclude that no conflict exists. You warranty that you possess all the requisite certificates, licenses, permits, work visas, clearances to be able to lawfully and rightfully perform the services as required hereunder."+"\n\n"+"In case, you become a party to any proceeding brought by any former employer at any time during or after your employment with Diksha Technologies, it will be your full and sole responsibility to respond to such action. The company has no responsibility to participate in your response or in your cost to such response."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="427" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="55" width="231" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="10" isBold="true" isUnderline="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["CONFLICT OF INTEREST AND OBLIGATIONS"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="322" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="549" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["2."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="80" width="533" height="43"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Diksha Technologies</b> has adopted a conflict of interest policy in respect of its employees.  This policy is intended to avoid conflict between the personal interest of the employee and that of the Company. Noted below are a few areas where conflict of interest and obligations can take place."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="322" width="491" height="57"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For an employee or any dependent member of his/her family to have an interest in any organization which has business dealings with the company where there is an opportunity for preferential treatment to be given or received, except where such an interest comprises of securities in widely held corporations which are quoted and sold on open market or the interest is not material."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="470" width="491" height="31"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For an employee to use or release to a third party any data on decisions, plans, competitive bids or any other information concerning the company which might be prejudicial to the interest of the company."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="426" width="491" height="44"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For an employee to serve as an officer, director or in any other management capacity or as a consultant of another company or organization doing or seeking to do business with the company or any affiliate except with the knowledge and consent of top management."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="470" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="53" y="379" width="491" height="48"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For an employee or any dependent member of his/her family to buy or sell or lease any kind of property, facilities or equipment from or to the company or any affiliate to our company or from individual who is seeking to become a contractor, supplier or customer except with the knowledge and consent of Diksha Technologies."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="505" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="549" width="514" height="56"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Mode of Communication:</u></b> Other than general notices, which may be notified by email, general notice, announcement on the Company’s web site, bulletin e-mail, bulletin boards and other similar postings, notices will be provided to you in person, by email or by post at the address given by you at the time of your employment or such other address as may be intimated by you to the company thereafter."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="304" width="244" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Other examples of conflict of interest could be:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="128" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["1."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="40" width="107" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["ANNEXURE 1A"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="35" y="379" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="609" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["3."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="609" width="514" height="73"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Travel and Expenses:</u></b> You may be required to travel, whether in or around India or overseas, in connection with your employment with Company upon short notice to you. While traveling for work, your expenses and costs in connection with such travel and any other expenses incurred by you during the course of your employment will be reimbursed in accordance with the current travel and expense policy of Company. You are expected to keep your passport valid at all times."]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="715" width="100" height="1"/>
+			</break>
+		</band>
+		<band height="720">
+			<textField>
+				<reportElement x="10" y="10" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["4."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="10" width="514" height="260"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Intellectual Property:</u></b> The Employee expressly covenants and agrees that any rights, title and interest whatsoever including but not limited to, copyrights, trade secret, design rights, mask rights, inventions, trademarks, and patents (collectively “Intellectual Property”) whether registered or not, arising or created as a result of the development of and/or the application of any tangible or intangible work product or materials produced by you during the course of your employment, whether alone or in conjunction with others and whether during normal working hours or not, performed on behalf of the Company, or by using the premises, facilities or time of the Company, including, but not limited to, any invention, design, discovery, improvement, computer program, documentation, or other material which you conceive, discover or create during or in consequence of employment hereunder (“Work Product”)shall belong exclusively to the Company. You hereby convey, assign or transfer ownership in such rights, title and interest to Company and its affiliates upon inception or development. You hereby forever waive all moral rights in the Work Product and any results or proceeds there from, even if after expiration or termination of your employment hereunder. Further, the Employee hereby acknowledges that he retains no rights whatsoever with respect to the above-stated Intellectual Property, including but not limited to any rights to reproduce, prepare derivative works, file applications and extensions, copy, distribute, exhibit, use and/or display publicly or otherwise, license or assign to any third party the right to do any of the foregoing. In the event that Company is unable for any reason, after reasonable effort, to secure your signature on any document needed to perfect the title of Company and its affiliates, you hereby irrevocably designate and appoint Company and its duly authorised officers and agents as your agent and attorney in fact to act for and on your behalf to execute, file and verify such documents and to do all other lawfully permitted acts with the same legal force and effect as if executed by you.  Your obligations under this Section shall remain in effect and survive any termination or expiration of your employment or these Terms of Employment. Company shall be entitled to immediate injunctive relief or claim damages (liquidated or un-liquidated) or similar relief and/or take disciplinary action (including but not limiting to termination) upon potential or actual breach of this Section by you."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="276" width="514" height="200"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Non-competition and Non-Solicitation:</u></b> During the term of your employment or these Terms of Employment and for a period of One (1) year after the termination of your employment hereunder, you will not, directly or indirectly, either alone or jointly with or as manager, agent, consultant or employee of any person, firm or company, engage yourself in any activity or employment or business which could result in direct or indirect competition with the business of the Company."+"\n\n"+"In the event that the provisions of this Section should ever be deemed to exceed the time, geographic or occupational limitations permitted by the applicable laws, then such provisions shall be reformed to the maximum time, geographic or occupational limitations permitted by the applicable laws. You expressly covenants and agrees that you will not at any time of employment and for a period of One (1) year after the termination of your employment, for any reason you will not either directly or indirectly, (a) in any way seek to induce, bring, promote, facilitate or encourage the discontinuance of, or in any way solicit for or on behalf of you or any others, or in any way disclose customer or client lists or customer or client accounts of the Company, or (b) in any way solicit the services of (or otherwise deal in a manner adverse to the Company) any employee of the Company, or otherwise induce, encourage or seek to induce such employee to terminate his or her employment with the Company or (c) in any way seek employment, contract or assignments with the client or customers of Diksha Technologies. If such solicitation or behavior occurs, the Company will be damaged and will consider said solicitation, encouragement or inducement to be an intentional, knowing and tortuous interference with the Company's employment and/or business contracts and will hold the Employee liable."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="276" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["5."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="480" width="514" height="75"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Prior Inventions:</u></b> As a matter of record and in order to assist Diksha Technologies in determining the rights to any discoveries and inventions in connection with your employment, you are required to list in the space provided at the end of this document, all inventions, copyrighted material, patents and patent applications which you own or have any interest in and which were conceived of, or first reduced to practice, prior to your employment with Diksha Technologies, all of which shall remain your property. If nothing is listed, the Company may conclusively assume that you claim no interest in any inventions, copyrighted material, patents or patent applications."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="480" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["6."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="561" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["7."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="561" width="514" height="111"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Arbitration:</u></b> The Company and the employee agree and acknowledge that they shall make all reasonable endeavors to settle any dispute or controversy arising out of or in connection with this Agreement or the employment relationship amicably through good faith negotiations. Any dispute or controversy that is not settled through negotiations within thirty (30) days of notice being given by either Party of the dispute, shall be exclusively resolved through arbitration by a sole arbitrator to be appointed by Diksha in provision with Arbitration and Conciliation Act, 1996. The venue of Arbitration shall be Bangalore regardless of whether one of the parties has executed this Agreement outside Bangalore, or outside of the country. Construction of the terms used in this Agreement shall be interpreted in accordance with the laws of India."]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="720">
+			<textField>
+				<reportElement x="10" y="13" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["8."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="13" width="514" height="75"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Indemnification:</u></b> During the term of this agreement, if you are found to be grossly negligent or careless or inefficient in performing your duties, Diksha Technologies reserves the right to terminate your services with or without stating any reasons whatsoever. If you have been intentionally found to be inefficient and careless or guilty of misconduct and do not observe any of the decree of this Agreement, the Company in addition to terminating your services, reserves the right to take all actions permissible under law, including recovery of three months salary and any monetary loss to the company due to your actions, even after separation due to resignation or termination."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="93" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["9."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="93" width="514" height="55"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Attorney’s Fees:</u></b> In the event of the employee's breach of any provision of this Agreement or in the event that the Company is compelled to initiate legal proceedings to enforce any provision of this Agreement, the Company shall be entitled to collect and be reimbursed for any costs and reasonable attorney’s fees incurred should it be necessary for the Company to initiate and prosecute legal action against the employee in the event the employee breaches or threatens a breach of this agreement."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="154" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["10."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="154" width="514" height="30"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Severability:</u></b> If any provision of this contract shall for any reason be held invalid, then the invalidity of such specific provision shall not be held to invalidate any other provisions of this agreement, which shall, therefore, remain in full force and effect."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="189" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["11."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="189" width="514" height="112"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b><u>Agreement:</u></b> Your employment for Diksha Technologies Pvt Limited (“Company” or “Diksha”) will be governed by Company's policies, as modified, from time to time and at Company’s sole discretion, upon notice to you.  The terms and conditions contained herein (“Terms of Employment“) must be read in conjunction with Company policies. It is agreed between the employee and Diksha that there are no other agreements or understandings between them relating to the subject matter of this Agreement. This Agreement supersedes all prior agreements, oral or written, between the employee and company and is intended as a complete and exclusive statement of the agreement between company and employee. Any policy infraction will amount to breach of your terms of employment and may lead to termination of your services. These Terms of Employment and policies shall be subject to modifications, from time to time, upon notice to you."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="671" width="59" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="11" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Signature:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="420" width="271" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["(Attach additional pages if necessary)"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="396" width="531" height="1"/>
+			</line>
+			<line>
+				<reportElement x="13" y="517" width="531" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="12" y="605" width="532" height="37"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["I have read the above agreement and I declare that there are no conflicting obligations and interest other than those mentioned above. If in the future any conflict arises, I will inform <b>Diksha Technologies Pvt. Ltd.</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="561" width="271" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["(Attach additional pages if necessary)"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="13" y="536" width="531" height="1"/>
+			</line>
+			<line>
+				<reportElement x="11" y="358" width="531" height="1"/>
+			</line>
+			<line>
+				<reportElement x="10" y="377" width="531" height="1"/>
+			</line>
+			<line>
+				<reportElement x="11" y="603" width="531" height="1" forecolor="#666666"/>
+			</line>
+			<textField>
+				<reportElement x="13" y="705" width="59" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="11" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="12" y="323" width="476" height="16"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Prior Obligations (if any) – see Annexure 1A section 1 above: (If nothing please write “none”)"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="13" y="687" width="247" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name: <b> "+$F{FIRST_NAME}+"  "+$F{LAST_NAME}+"</b>"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="13" y="498" width="531" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="13" y="465" width="504" height="16"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Prior Inventions (if any) – see Annexure 1A section 5 above: (If nothing please write “none”)"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="415" width="531" height="1"/>
+			</line>
+			<line>
+				<reportElement x="13" y="556" width="531" height="1"/>
+			</line>
+		</band>
+		<band height="720">
+			<textField>
+				<reportElement x="102" y="20" width="348" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="10" isBold="true" isUnderline="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["CONFIDENTIALITY AND NON - DISCLOSURE AGREEMENT"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["ANNEXURE 1B"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="150" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="150" width="509" height="30"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Information which by its very nature might reasonably be understood to be confidential or to have been disclosed in confidence; and"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="12" y="43" width="529" height="99"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["All employees of Diksha Technologies are required to undertake the following Confidentiality and Nondisclosure Agreement. This agreement is intended to ensure all Confidential Information, which is defined below is not used either intentionally or unintentionally, at any point of time, to undermine the interest of the Company."+"\n\n"+"During the course of employment at Diksha Technologies, you will have access to information relating to the Company (and its business, service and products), which have commercial and strategic value to the Company and which the Company desires to keep confidential. For the purpose of this Agreement, “Confidential Information” has its ordinary meaning, including but not limited to all information concerning:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="182" width="509" height="65"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The Company has acquired and developed, and will continue to develop technical information including but not limited to, functional and technical specifications, Source and object code, formulas, computer-related equipment or technology, techniques, “know-how”, flowcharts, algorithms, drawings, analysis, coding sheets, routines, sub-routines, compilers, assemblers, designs, the nature and results of research and development activities, processes, systems and procedures, computer programs, methodologies, ideas, and related documentation and manuals; and"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="182" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="280" width="509" height="113"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Business and financial information including but not limited to, sales and marketing research, business strategies, licensing technique, technical data, production processes, marketing techniques, titles and descriptions, any patents or patent applications filed, customer and prospect names and requirements, employee, agents, suppliers, distributors, materials, market trends, purchase information, fees, rates, bonus and incentive structure, pricing policies, quotation procedure, customer lists, mailing list, names, addresses, business habits of customers, sales reports, price lists, personnel records, accounting and financial information, funding information, financial statement, management report, revenue and expense projection, stock information, assets and liabilities, revenues, profits, credit history and other credit related information, including other information designated as confidential expressly or by the circumstances in which it is provided, and in the case of Company Confidential Information, material or information relating to the Company's business and the manner in which the Company carries out its business;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="251" width="509" height="25"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Computer software whether now or hereafter existing, including all modifications, enhancements, and versions and all options available with respect thereto, and all future products developed or derived therefrom; and"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="251" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="280" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="396" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="396" width="509" height="51"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Client Data, including lists, names and information about existing, past or prospective Clients and their representative, data about the terms, any communication to or from a Client conditions and expiration of existing contracts with clients, the quantity and nature of services received by Clients and collections, discounts or any other information obtained by the Company in its capacity as consultant for any clients."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="451" width="509" height="25"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Third Party Information: Any and all information and material in the Company’s possession or under its control from any other person or entity which the Company is obligated to treat as confidential or proprietary."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="16" y="451" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["•"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="488" width="529" height="73"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["As part of your employment hereunder, you agree and acknowledge that you will develop relationships of special trust and confidence with the Company and its affiliates and their customers, clients, contractors, partners, employees, agencies, vendors and you will acquire or develop or have access directly or indirectly to confidential and proprietary information concerning the Company, its employees, customers, suppliers, marketing strategies and other proprietary information (collectively “Confidential Matter”).  "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="13" y="684" width="247" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name: <b> "+$F{FIRST_NAME}+"  "+$F{LAST_NAME}+"</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="13" y="665" width="59" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Signature:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="703" width="59" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date:"]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="720">
+			<textField>
+				<reportElement x="38" y="57" width="503" height="27"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Not directly or indirectly use or attempt to use or disclose any confidential information to any person or party or entity except for the sole benefit and with the consent of the Company;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="57" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["a)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="10" width="527" height="40"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["You acknowledge and agree that such Confidential Matter is for the Company's exclusive benefit and that both during the term of your employment and at any time thereafter, you agree to execute nondisclosure or similar agreements required by the company and its affiliates their employees, contractors and/or clients with respect to such Confidential Information. You shall:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="89" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["b)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="89" width="503" height="27"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["not disclose or divulge the Confidential Information to or for the benefit any third person or entity without the prior authorization of the Company;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="121" width="503" height="16"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["give prompt notice to Company of any actual or attempted unauthorised use or disclosure of the Confidential Information;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="121" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["c)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="143" width="503" height="40"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Upon the conclusion of your project, deputation or termination of your employment you will promptly return to the Company, customers, client and its affiliates all documents, notes, memoranda, equipment, material and information (including computer generated and stored material);"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="143" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["d)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="208" width="503" height="27"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Employee must immediately notify the Company in writing of any actual, threatened or suspected unauthorised disclosure of any Confidential Information."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="38" y="186" width="503" height="18"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Employee must at all times store all Confidential Information safely and securely;"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="186" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["e)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="208" width="21" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["f)"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="14" y="242" width="527" height="40"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["All such confidential information is the sole property of Diksha Technologies. Your obligations under this Section shall remain in effect and survive any termination or expiration of your employment or these Terms of Employment."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="490" width="62" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="402" width="527" height="29"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["I have read the above agreement covering Confidential Information and understand my obligations to"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="10" y="456" width="59" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Signature:"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="399" width="527" height="1" forecolor="#000000"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="472" width="247" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name: <b> "+$F{FIRST_NAME}+"  "+$F{LAST_NAME}+"</b>"]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="704" width="100" height="1"/>
+			</break>
+		</band>
+		<band height="225">
+			<componentElement>
+				<reportElement x="10" y="135" width="536" height="20"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="dataset1">
+						<datasetParameter name="CANDIDATE_ID">
+							<datasetParameterExpression><![CDATA[$P{CANDIDATE_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="20" width="536">
+						<textField isBlankWhenNull="true">
+							<reportElement x="8" y="1" width="100" height="19"/>
+							<textElement markup="styled">
+								<font fontName="Calibri"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[com.dikshatech.common.utils.Converter.returnFieldLebel($F{FIELD_LABEL})+" "]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="201" y="1" width="100" height="19"/>
+							<textElement markup="styled">
+								<font fontName="Calibri"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[com.dikshatech.common.utils.Converter.returnSalary($F{FIELD_LABEL},$F{ANNUAL})+" "]]></textFieldExpression>
+						</textField>
+						<textField isBlankWhenNull="true">
+							<reportElement x="380" y="1" width="100" height="19"/>
+							<textElement markup="styled">
+								<font fontName="Calibri"/>
+							</textElement>
+							<textFieldExpression class="java.lang.String"><![CDATA[com.dikshatech.common.utils.Converter.returnSalary($F{FIELD_LABEL},$F{MONTHLY})+" "]]></textFieldExpression>
+						</textField>
+						<line>
+							<reportElement x="354" y="0" width="1" height="19"/>
+							<graphicElement>
+								<pen lineStyle="Double" lineColor="#999999"/>
+							</graphicElement>
+						</line>
+						<line>
+							<reportElement x="0" y="0" width="1" height="19"/>
+							<graphicElement>
+								<pen lineStyle="Double" lineColor="#999999"/>
+							</graphicElement>
+						</line>
+						<line>
+							<reportElement x="190" y="0" width="1" height="19"/>
+							<graphicElement>
+								<pen lineWidth="1.25" lineStyle="Double" lineColor="#999999"/>
+							</graphicElement>
+						</line>
+						<line>
+							<reportElement x="532" y="0" width="1" height="19"/>
+							<graphicElement>
+								<pen lineWidth="1.5" lineStyle="Double" lineColor="#999999"/>
+							</graphicElement>
+						</line>
+						<line>
+							<reportElement x="0" y="19" width="532" height="1"/>
+							<graphicElement>
+								<pen lineWidth="1.25" lineStyle="Double" lineColor="#999999"/>
+							</graphicElement>
+						</line>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<rectangle>
+				<reportElement x="11" y="38" width="526" height="45"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Double" lineColor="#999999"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="20" y="40" width="240" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name : "+$F{FIRST_NAME}+" "+$F{LAST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="40" width="210" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Designation : "+$F{DESIGNATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="64" width="238" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Level  &"+"  Grade: "+$F{LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="64" width="100" height="20"/>
+				<textElement>
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date of Joining : "]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="11" y="60" width="524" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Double" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="281" y="37" width="1" height="46"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Double" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="256" y="13" width="100" height="20"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["ANNEXURE 2"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="390" y="64" width="106" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{DATE_OF_JOINING}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="11" y="95" width="532" height="20" backcolor="#999999"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Double" lineColor="#999999"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="211" y="98" width="189" height="20" forecolor="#FFFFFF"/>
+				<textElement>
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["DIKSHA SALARY STACK UP"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="11" y="115" width="532" height="20"/>
+				<graphicElement>
+					<pen lineWidth="1.25" lineStyle="Double" lineColor="#999999"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="200" y="115" width="1" height="20"/>
+				<graphicElement>
+					<pen lineStyle="Double" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="403" y="118" width="100" height="17"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Monthly"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="118" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA["Annual"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="364" y="115" width="1" height="20"/>
+				<graphicElement>
+					<pen lineStyle="Double" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<break>
+				<reportElement x="0" y="199" width="100" height="1"/>
+			</break>
+		</band>
+		<band height="720">
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="41" y="66" width="501" height="38"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Up to Rs.15000/- of your annual CTC can be availed towards Medical Expenses which is tax exempted and you will be subject to tax for the portion of the allowances that is not availed. The reimbursement shall be made at the end of every quarter if supported by bills."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="57" y="332" width="501" height="52" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Employees of Diksha can avail interest free personal and Laptop loans. Loan shall be sanctioned based on various factors at each stage and on sole discretion of the company. The Terms of loan and policy shall be subject to modifications, from time to time, upon notice to employees. Employee is eligible to apply for loan provided he/she completes 12 months of service in Diksha for personal loan and 8 months of service in Diksha for laptop loan."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="25" y="52" width="530" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="false" isUnderline="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[". <b><u>Medical Reimbursement</u></b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="49" y="263" width="498" height="53"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Diksha Technologies expects its employees to travel expeditiously and comfortably to meet the needs of business for which Diksha will make the required travel arrangements and you will be provided with transit accommodation for the first 1 week of your stay at your deputation location or expenses incurred by you will be reimbursed in accordance with Company policy and eligibility."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="25" y="238" width="524" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="false" isUnderline="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[". <b><u>Travel and Accommodation</u></b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="25" y="168" width="533" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="false" isUnderline="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[". <b><u>Food coupons</u></b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="25" y="317" width="432" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="false" isUnderline="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[". <b><u>Loan and advances</u></b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="44" y="189" width="501" height="26"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["You are eligible to avail meal vouchers up to Rs.2200.00 per month from your CTC; Meal allowance is eligible for tax exemption as per the prescribed income tax rules applicable."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="52" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{P7}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="168" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{P9}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="114" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{P8}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="237" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{P10}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="25" y="114" width="509" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="false" isUnderline="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[". <b><u>Leave travel allowance(LTA)</u></b>"]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="52" y="134" width="500" height="26"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Calibri" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Employees are eligible for LTA provided leave is taken as per the leave policy. LTA is eligible for tax exemption and you will be subject to tax for the portion of the allowances that is not exempt."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="15" y="317" width="15" height="20"/>
+				<textElement>
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$P{P11}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="31" y="650" width="121" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Senior Manager - RMG"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="32" y="595" width="171" height="14"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For Diksha Technologies Pvt. Ltd.,"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="31" y="575" width="100" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Yours sincerely,"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="375" y="632" width="169" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name: <b> "+$F{FIRST_NAME}+"  "+$F{LAST_NAME}+"</b>"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="31" y="632" width="100" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Calibri" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Shambhavi.H.S"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="375" y="650" width="59" height="15"/>
+				<textElement>
+					<font fontName="Calibri" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="375" y="614" width="77" height="15"/>
+				<textElement>
+					<font fontName="Calibri" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Accepted by:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="47" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="20" width="595" height="3" forecolor="#FFFFFF" backcolor="#FF8512"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="2" y="26" width="148" height="18"/>
+				<textElement>
+					<font fontName="Calibri" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Diksha Technologies Pvt Ltd"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="207" y="26" width="130" height="18"/>
+				<textElement textAlignment="Center" markup="styled">
+					<font fontName="Calibri" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Private "+"&amp;"+" Confidential"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="26" width="153" height="18"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Resource Management Group"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

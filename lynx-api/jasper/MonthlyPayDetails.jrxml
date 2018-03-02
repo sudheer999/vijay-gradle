@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MonthlyPayDetails" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+	<property name="ireport.zoom" value="1.50262960180316"/>
+	<property name="ireport.x" value="187"/>
+	<property name="ireport.y" value="389"/>
+	<parameter name="USER_ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="MONTH_ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["/opt/dev-env/praya-java/Jaspers/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PaidDays" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[31]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT U.EMP_ID, U.LEVEL_ID, P.FIRST_NAME, P.LAST_NAME, P.OFFICAL_EMAIL_ID, L.LABEL, L.DESIGNATION,
+F.PF_ACC_NO, F.PAN_NO, F.PRIM_BANK_ACC_NO, F.PRIM_BANK_NAME
+FROM USERS U JOIN PROFILE_INFO P
+ON P.ID = U.PROFILE_ID
+JOIN LEVELS L ON U.LEVEL_ID = L.ID
+JOIN FINANCE_INFO F ON F.ID = U.FINANCE_ID
+WHERE U.ID = $P{USER_ID}]]>
+	</queryString>
+	<field name="EMP_ID" class="java.lang.Integer"/>
+	<field name="LEVEL_ID" class="java.lang.Integer"/>
+	<field name="FIRST_NAME" class="java.lang.String"/>
+	<field name="LAST_NAME" class="java.lang.String"/>
+	<field name="OFFICAL_EMAIL_ID" class="java.lang.String"/>
+	<field name="LABEL" class="java.lang.String"/>
+	<field name="DESIGNATION" class="java.lang.String"/>
+	<field name="PF_ACC_NO" class="java.lang.String"/>
+	<field name="PAN_NO" class="java.lang.String"/>
+	<field name="PRIM_BANK_ACC_NO" class="java.lang.String"/>
+	<field name="PRIM_BANK_NAME" class="java.lang.String"/>
+	<variable name="SumOfAllowances" class="java.lang.Float"/>
+	<variable name="SumOfDeductions" class="java.lang.Float"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="43" splitType="Stretch">
+			<image>
+				<reportElement  x="0" y="0" width="141" height="43"/>
+				<imageExpression><![CDATA["/opt/dev-env/praya-java/Jaspers/DikshaLogo.gif"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement  positionType="Float" stretchType="RelativeToBandHeight" mode="Transparent" x="141" y="0" width="414" height="43" forecolor="#301313"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="24" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Diksha Monthly Salary Details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement  x="0" y="0" width="219" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Payslip for the month of ]]></text>
+			</staticText>
+			<line>
+				<reportElement  x="0" y="20" width="555" height="2"/>
+			</line>
+			<textField pattern="">
+				<reportElement  x="219" y="0" width="336" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[com.dikshatech.common.utils.SalaryReportUtilities.getTextMonthFromId($P{MONTH_ID})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="164" splitType="Stretch">
+			<staticText>
+				<reportElement  x="0" y="1" width="115" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Employee ID : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement  x="0" y="21" width="115" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Employee Name : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement  x="0" y="41" width="115" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Designation : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement  x="0" y="61" width="115" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Level : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement  x="115" y="0" width="100" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMP_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement  x="115" y="21" width="100" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FIRST_NAME} + " " + $F{LAST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement  x="115" y="41" width="100" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESIGNATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement  x="115" y="61" width="100" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LABEL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement  x="274" y="21" width="115" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[PF Acct Number : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement  x="389" y="41" width="100" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRIM_BANK_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement  x="274" y="41" width="115" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Bank : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement  x="389" y="21" width="100" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PF_ACC_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement  x="389" y="61" width="100" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRIM_BANK_ACC_NO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement  x="274" y="1" width="115" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[PAN : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement  x="274" y="61" width="115" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Bank Acct Number : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement  x="389" y="1" width="100" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PAN_NO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement  x="0" y="81" width="115" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Paid Days : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement  x="115" y="81" width="100" height="20" forecolor="#000000"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PaidDays}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement  x="0" y="111" width="555" height="2"/>
+			</line>
+			<subreport isUsingCache="true">
+				<reportElement  x="0" y="113" width="555" height="50"/>
+				<subreportParameter name="MONTHID">
+					<subreportParameterExpression><![CDATA[$P{MONTH_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PaidDays">
+					<subreportParameterExpression><![CDATA[$P{PaidDays}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="USERID">
+					<subreportParameterExpression><![CDATA[$P{USER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="Sum" toVariable="SumOfAllowances"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "GrossSalaries.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="43">
+			<subreport>
+				<reportElement  x="0" y="0" width="555" height="42"/>
+				<subreportParameter name="USER_ID">
+					<subreportParameterExpression><![CDATA[$P{USER_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="MONTH_ID">
+					<subreportParameterExpression><![CDATA[$P{MONTH_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<returnValue subreportVariable="Sum" toVariable="SumOfDeductions"/>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "MonthlyDeductions.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement  x="0" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Amount : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement  x="274" y="0" width="100" height="20"/>
+				<textElement>
+					<font fontName="FreeMono" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{SumOfAllowances} - $V{SumOfDeductions}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement  x="0" y="53" width="555" height="2"/>
+			</line>
+			<staticText>
+				<reportElement  x="0" y="65" width="555" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[For Diksha Technologies Pvt Ltd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement  x="0" y="98" width="555" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Authorized Signature]]></text>
+			</staticText>
+			<staticText>
+				<reportElement  x="0" y="33" width="151" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Amount in Words: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement  x="151" y="33" width="404" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="FreeMono" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[com.dikshatech.common.utils.Converter.convert(java.lang.String.valueOf($V{SumOfAllowances} - $V{SumOfDeductions})) + " only"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

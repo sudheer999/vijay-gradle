@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actionForm>
+	<givenname>supriya</givenname>
+	<id>15</id>
+	<candidateId>26</candidateId>
+	<documentArr>
+		<id>94</id>
+		<candidateId>0</candidateId>
+		<filename>alterQueries.sql</filename>
+		<doctype>PASSPORT</doctype>
+	</documentArr>
+	<documentArr>
+		<id>95</id>
+		<candidateId>0</candidateId>
+		<filename>NewFile.xml</filename>
+		<doctype>PASSPORT</doctype>
+	</documentArr>
+	<documentArr>
+		<id>96</id>
+		<candidateId>0</candidateId>
+		<filename>FileUpload.jsp</filename>
+		<doctype>PASSPORT</doctype>
+	</documentArr>
+	<dateOfIssue>2011-11-11</dateOfIssue>
+</actionForm>

@@ -1,0 +1,1655 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Offer" language="groovy" pageWidth="555" pageHeight="730" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.5000000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="5271"/>
+	<style name="Style_1"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FF8512"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FF8512"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FF8512"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FF8512"/>
+		</box>
+	</style>
+	<style name="SALARY" mode="Opaque" forecolor="#000000" backcolor="#FFFFFF" fontName="Calibri" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{FIELD_LABEL}.equalsIgnoreCase("Total") || $F{FIELD_LABEL}.equalsIgnoreCase("TOTAL COST TO COMPANY")]]></conditionExpression>
+			<style mode="Transparent" backcolor="#999999" fontName="Calibri" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+		</conditionalStyle>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{FIELD_LABEL}.equalsIgnoreCase("FIXED") || $F{FIELD_LABEL}.equalsIgnoreCase("FLEXI BENEFIT PLAN") || $F{FIELD_LABEL}.equalsIgnoreCase("RETIRALS")]]></conditionExpression>
+			<style forecolor="#000000" backcolor="#D4D3D3" fontName="Calibri"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="dataset1">
+		<parameter name="CANDIDATE_ID" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[select FIELD_LABEL,MONTHLY,ANNUAL,SUM FROM SALARY_DETAILS WHERE CANDIDATE_ID=$P{CANDIDATE_ID} ORDER BY ID]]>
+		</queryString>
+		<field name="FIELD_LABEL" class="java.lang.String"/>
+		<field name="MONTHLY" class="java.lang.String"/>
+		<field name="ANNUAL" class="java.lang.String"/>
+		<field name="SUM" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset5">
+		<parameter name="CANDIDATE_ID" class="java.lang.Integer"/>
+		<queryString>
+			<![CDATA[SELECT
+     *
+FROM
+     `SALARY_DETAILS` SALARY_DETAILS
+WHERE
+     CANDIDATE_ID = $P{CANDIDATE_ID}
+ AND FIELDTYPE = '2_1']]>
+		</queryString>
+		<field name="ID" class="java.lang.Integer"/>
+		<field name="USER_ID" class="java.lang.Integer"/>
+		<field name="CANDIDATE_ID" class="java.lang.Integer"/>
+		<field name="FIELD_LABEL" class="java.lang.String"/>
+		<field name="MONTHLY" class="java.lang.String"/>
+		<field name="ANNUAL" class="java.lang.String"/>
+		<field name="SUM" class="java.lang.String"/>
+		<field name="FIELDTYPE" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset2">
+		<parameter name="CANDIDATE_ID" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[$P{CANDIDATE_ID}]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT * FROM CANDIDATE_PERDIEM_DETAILS WHERE CANDIDATE_ID=$P{CANDIDATE_ID}]]>
+		</queryString>
+		<field name="ID" class="java.lang.Integer"/>
+		<field name="CANDIDATE_ID" class="java.lang.Integer"/>
+		<field name="LOCATION" class="java.lang.String"/>
+		<field name="PERDIEM" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Table Dataset 1"/>
+	<subDataset name="Table Dataset 2"/>
+	<parameter name="CANDIDATE_ID" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="JOININGBONUS" class="java.lang.Integer"/>
+	<parameter name="RELOCATIONALLOWANCE" class="java.lang.Integer"/>
+	<parameter name="EXCLUDE_SALARY_CONFIG_CLAUSE" class="java.lang.String">
+		<parameterDescription><![CDATA[SALARY_CONFIG ID to be excluded for calculation]]></parameterDescription>
+	</parameter>
+	<parameter name="VIEW_SALARY_CONFIG_CLAUSE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<parameter name="LOGO" class="java.lang.String"/>
+	<parameter name="TABLE_NAME" class="java.lang.String">
+		<defaultValueExpression><![CDATA[SALARY_DETAILS]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT FIRST_NAME,LAST_NAME,DATE_OF_JOINING ,DESIGNATION,LABEL,NAME,SI.*,CPD.*,ADR.ADDRESS,ADR.CITY,ZIPCODE,FPD.FIXED_PERDIEM,SI.PERDIEM_OFFER_STRING,SI.RELOCATION_PLACE
+FROM CANDIDATE C
+LEFT JOIN PROFILE_INFO PI ON PI.ID = C.PROFILE_ID
+LEFT JOIN PERSONAL_INFO PER ON PER.ID = C.PERSONAL_ID
+LEFT JOIN ADDRESS ADR ON ADR.ID = PER.PERMANENT_ADDRESS
+LEFT JOIN LEVELS L ON PI.LEVEL_ID = L.ID
+LEFT JOIN DIVISON D ON L.DIVISION_ID = D.ID
+LEFT JOIN SALARY_INFO SI ON SI.BASIC=C.ID
+LEFT JOIN CANDIDATE_PERDIEM_DETAILS CPD ON CPD.CANDIDATE_ID=C.ID
+LEFT JOIN FIXED_PERDIEM_CANDIDATE FPD ON FPD.ID=C.ID
+WHERE C.ID=$P{CANDIDATE_ID}]]>
+	</queryString>
+	<field name="FIRST_NAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="LAST_NAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DATE_OF_JOINING" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NAME" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DESIGNATION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="LABEL" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="BASIC" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="HRA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[124000]]></fieldDescription>
+	</field>
+	<field name="CONVEYANCE" class="java.lang.Integer">
+		<fieldDescription><![CDATA[50000]]></fieldDescription>
+	</field>
+	<field name="MEDICAL_ALLOWANCE" class="java.lang.Integer">
+		<fieldDescription><![CDATA[12000]]></fieldDescription>
+	</field>
+	<field name="SPECIAL_ALLOWANCE" class="java.lang.Integer">
+		<fieldDescription><![CDATA[10000]]></fieldDescription>
+	</field>
+	<field name="PF_EMP_CONTRIBUTION" class="java.lang.Integer">
+		<fieldDescription><![CDATA[50000]]></fieldDescription>
+	</field>
+	<field name="ANNUAL_INCENTIVE" class="java.lang.Integer">
+		<fieldDescription><![CDATA[10000]]></fieldDescription>
+	</field>
+	<field name="RELOCATION_BONUS" class="java.lang.String">
+		<fieldDescription><![CDATA[50000]]></fieldDescription>
+	</field>
+	<field name="JOINING_BONUS_STRING" class="java.lang.String"/>
+	<field name="JOINING_BONUS_AMOUNT" class="java.lang.String">
+		<fieldDescription><![CDATA[4000]]></fieldDescription>
+	</field>
+	<field name="RETENTION_BONUS" class="java.lang.String">
+		<fieldDescription><![CDATA[null]]></fieldDescription>
+	</field>
+	<field name="PAYMENT_TERMS" class="java.lang.String">
+		<fieldDescription><![CDATA[pay]]></fieldDescription>
+	</field>
+	<field name="PERDIEM_STRING" class="java.lang.String">
+		<fieldDescription><![CDATA[Accepted]]></fieldDescription>
+	</field>
+	<field name="TOTAL_SALARY" class="java.lang.Integer">
+		<fieldDescription><![CDATA[360000]]></fieldDescription>
+	</field>
+	<field name="MEDI_CLAIM_POLICY" class="java.lang.Integer">
+		<fieldDescription><![CDATA[4567]]></fieldDescription>
+	</field>
+	<field name="PER_ACCIDENT_POLICY" class="java.lang.Integer">
+		<fieldDescription><![CDATA[67544]]></fieldDescription>
+	</field>
+	<field name="LOCATION" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERDIEM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ADDRESS" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CITY" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ZIPCODE" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FIXED_PERDIEM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERDIEM_OFFER_STRING" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RELOCATION_PLACE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PERDIEM_TYPE" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="fixedPerdiem" class="java.lang.String">
+		<variableExpression><![CDATA[com.dikshatech.common.utils.DesEncrypterDecrypter.getInstance().decrypt($F{FIXED_PERDIEM})]]></variableExpression>
+		<initialValueExpression><![CDATA[""]]></initialValueExpression>
+	</variable>
+	<variable name="variablePerdiem" class="java.lang.String">
+		<variableExpression><![CDATA[$F{PERDIEM_OFFER_STRING}]]></variableExpression>
+		<initialValueExpression><![CDATA[""]]></initialValueExpression>
+	</variable>
+	<pageHeader>
+		<band height="50" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}>1)]]></printWhenExpression>
+			<image>
+				<reportElement mode="Transparent" x="0" y="0" width="553" height="50"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_header.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="438" y="33" width="118" height="15"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Trebuchet MS" size="9" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["envision empower evolve"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="620" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}==1)]]></printWhenExpression>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="10" y="447" width="241" height="20" forecolor="#FF6600"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["A proud winner of various global awards;"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="10" y="468" width="219" height="17" forecolor="#606060"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["“Red Herring Top 100 Asia Award 2011”"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="227" y="468" width="135" height="17" forecolor="#FF6600"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["– for being one of the 100"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="11" y="485" width="330" height="16" forecolor="#FF6600"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["'Most Promising companies in Asia driving the future of technology."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="10" y="518" width="225" height="17" forecolor="#606060"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["“Deloitte Technology Fast 50 India 2010”"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="234" y="518" width="126" height="17" forecolor="#FF6600"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["– for being one of the"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="11" y="535" width="330" height="16" forecolor="#FF6600"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["top 50 fastest growing & dynamic technology companies in India."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="10" y="567" width="271" height="17" forecolor="#606060"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["“Deloitte Technology Fast 500 Asia Pacific 2010”"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="280" y="567" width="86" height="17" forecolor="#FF6600"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["– for being one"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="11" y="584" width="357" height="16" forecolor="#FF6600"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["of the top 500 companies with highest growth rates for 3 consecutive"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="11" y="600" width="140" height="16" forecolor="#FF6600"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["years in Asia Pacific."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement isPrintRepeatedValues="false" mode="Opaque" x="2" y="55" width="498" height="44" isRemoveLineWhenBlank="true" forecolor="#FFFFFF" backcolor="#666666"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None" markup="styled">
+					<font fontName="Trebuchet MS" size="22" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Employment Offer Letter"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="500" y="55" width="10" height="44" forecolor="#666666" backcolor="#666666"/>
+				<box>
+					<bottomPen lineWidth="0.25" lineColor="#FFFFFF"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<image>
+				<reportElement x="20" y="2" width="170" height="50"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_logo_main.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="97" y="101" width="457" height="335"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_letter_model_photo.jpg"]]></imageExpression>
+			</image>
+		</band>
+		<band height="620" splitType="Prevent">
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="128" y="58" width="299" height="25" forecolor="#FF6600"/>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS" size="14" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Welcome to Diksha Technologies Pvt Limited"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+				<reportElement isPrintRepeatedValues="false" x="50" y="103" width="450" height="35"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="12" isBold="false" isStrikeThrough="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Congratulations on your offer with Diksha Technologies,</b> a leading and high performing organization in BSS/OSS since early 2000."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="142" width="450" height="62"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Being an industry veteran organization in a highly competitive market, Diksha has one of the largest pure telecom-based teams in the Asia-Pacific Region. Our teams of highly-skilled niche professionals have helped our customers deliver world-class solutions."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="209" width="450" height="62"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Diksha and our consultants have had the privilege of working with many global telecommunications giants. We have been an active agent in the evolution of the telecom industry over the years and have helped our clients navigate through many challenges."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="276" width="450" height="62"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Addressing the scarcity of telecom experts in international markets, Diksha has expanded its service offerings to the Americas, Australia, New Zealand, Singapore, Malaysia, and the CALA region. Our verticals are growing rapidly and will help us achieve our goal of being one of the largest teams in the world."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="343" width="450" height="62"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Our people are known for their expertise, commitment and dynamism. Diksha is committed to creating an environment that attracts, develops, rewards and values highly effective people. Diksha has been recognized as one of the best companies to work for."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="412" width="450" height="30"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We value your skills, experience and ability to out-perform and look forward to your contribution to the success of Diksha."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="449" width="450" height="47"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Trebuchet MS" size="12" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We are delighted that you have chosen us and we look forward to a long & mutually rewarding association with you. Wish you success in your endeavors at Diksha!!!"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement isPrintRepeatedValues="false" x="405" y="13" width="114" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="620" splitType="Stretch">
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement isPrintRepeatedValues="false" x="405" y="26" width="114" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="280" width="450" height="38"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Salary Review - </b>Your salary will be reviewed periodically as per company policy. Your growth in the Company and increase in salary will solely depend on your performance and contribution to the Company."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="535" width="119" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Yours sincerely,"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="318" width="450" height="47"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Leave and Holidays - </b>Diksha recognizes the statutory local and public holidays in a year. You shall be eligible for 20 working days leave per annum. Leave accrues on a pro rata basis from the date of joining at 1 day per month (probationary period) and 1.6 days per month (after completion of probationary)."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="511" width="450" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Welcome to Diksha Technologies. We wish you a long, rewarding and fulfilling career with us."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="367" width="450" height="30"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Onboarding -</b> We have an orientation program on your day of joining, which will provide you with a brief overview of Diksha, its Policies and Practices."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="397" width="450" height="35"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>RMG SPOC - </b>In our endeavor to implement innovative and best practices, relegate logistical hassles and provide personalized attention. A RMG SPOC (Single Point of Contact) will be identified for each employee in the organization"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="434" width="450" height="27"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Working Hours - </b>The normal working hours are 9.30 a.m. to 6.00 p.m., Monday to Friday. During deputation, you are requested to abide by the particular client‟s working norms."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="461" width="450" height="50"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Rewards and Recognition -</b> Our rewards and recognition program is designed to commemorate employees‟ excellence in all areas of their job functions. The program recognizes employees‟ outstanding performances, achievements and loyalty contributing to the overall growth and success of the organization."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="145" width="294" height="14"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Date of Appointment -</b> Your employment will be effective from,"]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="342" y="145" width="147" height="14"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{DATE_OF_JOINING}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="129" width="450" height="12"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We are pleased to offer you the position of<b> "+$F{DESIGNATION}+"</b> at <b>Diksha Technologies Pvt. Ltd </b>"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="49" width="223" height="14"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="11" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{FIRST_NAME}+" "+$F{LAST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="65" width="368" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ADDRESS}.trim().replaceAll("\\s+", " ")]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="81" width="223" height="12"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CITY}+"-"+$F{ZIPCODE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="50" y="109" width="166" height="13"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Dear "+ $F{FIRST_NAME}+","]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="50" y="26" width="40" height="15"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Trebuchet MS" size="11" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["To,"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" isPrintRepeatedValues="false" x="50" y="163" width="450" height="37"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Compensation and Benefits –</b> Will be effective upon commencement of your employment at Diksha. The details of your compensation, allowances and benefits are outlined in Annexure 1 and are subject to the conditions detailed."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="202" width="450" height="27"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Probation - </b>You will be on probation for a period of Six months from the date of Employment. Your confirmation will be based on your positive contribution to the Company‟s objectives."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="231" width="450" height="49"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Career Progression - </b>Diksha has multi-level roles and competency based structure and all Roles are mapped onto a respective job level with each level having a corresponding grade. A futuristic approach has been adopted to bring in better results and advancements in every employee‟s goals and career aspiration."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="306" y="588" width="194" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name: "+$F{FIRST_NAME}+" "+$F{LAST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="588" width="187" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Shambhavi. H. S"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="306" y="603" width="142" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="306" y="555" width="142" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Accepted By :"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="555" width="187" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For Diksha Technologies Pvt. Ltd.,"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="603" width="187" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Senior Manager - RMG "]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="620">
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="50" y="567" width="452" height="25"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Your compensation details are strictly private and confidential and must not be disclosed or discussed with anyone other than authorized personnel from RMG."]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement isPrintRepeatedValues="false" x="50" y="136" width="450" height="400" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="TABLE_NAME">
+					<subreportParameterExpression><![CDATA[$P{TABLE_NAME}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CANDIDATE_ID">
+					<subreportParameterExpression><![CDATA[$P{CANDIDATE_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="JOINING_BONUS">
+					<subreportParameterExpression><![CDATA[($F{JOINING_BONUS_AMOUNT}!=null && $F{JOINING_BONUS_AMOUNT}.trim()!="")?java.lang.Float.parseFloat($F{JOINING_BONUS_AMOUNT}.trim()):0.0f]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RELOCATIONALLOWANCE">
+					<subreportParameterExpression><![CDATA[$P{RELOCATIONALLOWANCE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="whereSalaryConfigIdIn">
+					<subreportParameterExpression><![CDATA[$P{VIEW_SALARY_CONFIG_CLAUSE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="RELOCATION_BONUS">
+					<subreportParameterExpression><![CDATA[($F{RELOCATION_BONUS}!=null && $F{RELOCATION_BONUS}.trim()!="")?java.lang.Float.parseFloat($F{RELOCATION_BONUS}.trim()):0.0f]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="JOININGBONUS">
+					<subreportParameterExpression><![CDATA[$P{JOININGBONUS}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="whereSalaryConfigIdNotin">
+					<subreportParameterExpression><![CDATA[$P{EXCLUDE_SALARY_CONFIG_CLAUSE}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR}+"OfferLetter_subreport_Salary.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="256" y="14" width="75" height="30"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Trebuchet MS" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["ANNEXURE 1"]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Opaque" x="51" y="53" width="452" height="79" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid" lineColor="#4682B4"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="54" y="82" width="220" height="18"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name : "+$F{FIRST_NAME}+" "+$F{LAST_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="290" y="83" width="200" height="18"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Designation : "+$F{DESIGNATION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="54" y="110" width="220" height="17"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Level  &amp;"+"  Grade: "+$F{LABEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="290" y="110" width="200" height="17"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Department : "+$F{NAME}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="50" y="105" width="452" height="1" isRemoveLineWhenBlank="true" forecolor="#4682B4" backcolor="#4682B4"/>
+				<graphicElement>
+					<pen lineWidth="2.25" lineStyle="Solid" lineColor="#4682B4"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" mode="Opaque" x="52" y="54" width="450" height="24" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#CCCCCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="11" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["COMPENSATION STRUCTURE – (all figures in Rs)"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="281" y="77" width="1" height="54" isRemoveLineWhenBlank="true" forecolor="#4682B4" backcolor="#4682B4"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Solid" lineColor="#4682B4"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="50" y="78" width="452" height="1" isRemoveLineWhenBlank="true" forecolor="#4682B4" backcolor="#4682B4"/>
+				<graphicElement>
+					<pen lineWidth="1.75" lineStyle="Solid" lineColor="#4682B4"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="154" y="73" width="245" height="1" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#000000"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</graphicElement>
+			</line>
+		</band>
+		<band height="620">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="50" y="14" width="450" height="32"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Explanation of Compensation:</b>  These components are included in the stack-up stated above."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="52" width="430" height="15"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The above components are subject to deduction of contributions, charges and tax."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="72" width="430" height="15"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The breakup of the Flexi Benefit Plan is given under ‘Explanation of benefits’."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="92" width="430" height="30"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["You would be eligible for tax exemptions under different components as per the rules determined by the Income Tax Authorities"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="50" y="126" width="450" height="33"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>A - Basic Salary:</b> A fixed monthly component of your salary and is taxable."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="50" y="160" width="450" height="23"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>B - Allowances:</b>"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="60" y="184" width="14" height="14" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="60" y="223" width="14" height="14" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="60" y="255" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600" backcolor="#FF3300"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="80" y="184" width="420" height="37"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Conveyance Allowance -</b> This is meant to compensate you for the cost incurred in commuting to the place of work. This is a tax free allowance in your salary structure and does not warrant the production of any bills."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="80" y="223" width="420" height="30"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>House Rent Allowance -</b>Is paid out to meet full or part of your expenditure on house rent. HRA can be tax-free, subject to the submission of rental proof."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="80" y="257" width="420" height="27"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Additional Allowance -</b>This encompasses those aspects of allowance which are not covered into the components mentioned above. This allowance is taxable."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="50" y="292" width="450" height="25"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>C - Benefits:</b>"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="50" y="316" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="50" y="500" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="50" y="563" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="319" width="430" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Flexi Benefit Plan (FBP)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="346" width="430" height="26"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The Flexi Benefits Plan has been developed as part of your overall remuneration package .It allows you to define how you would like to receive your remuneration and respective benefits in addition to your core benefit entitlement."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="379" width="430" height="21"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The List of benefits to choose from, depending on your Level, includes, but is certainly not limited to:"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="76" y="409" width="10" height="10" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_tick.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="76" y="430" width="10" height="10" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_tick.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="76" y="450" width="10" height="10" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_tick.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="76" y="470" width="10" height="10" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_tick.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="301" y="409" width="10" height="10" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_tick.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="301" y="429" width="10" height="10" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_tick.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="301" y="449" width="10" height="10" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_tick.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="95" y="410" width="120" height="18"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Leave travel allowance (LTA)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="95" y="431" width="120" height="18"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Meal Voucher"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="95" y="451" width="120" height="18"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Medical reimbursement"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="95" y="471" width="120" height="18"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Other allowance"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="320" y="410" width="120" height="18"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Telephone allowance"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="320" y="430" width="120" height="18"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Transport allowance"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="320" y="450" width="120" height="18"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Child Education allowance"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="503" width="430" height="50"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Employer contribution to Provident Fund -</b>You will be covered under Diksha‟s provident fund scheme. The company will match your contribution of 12% of your annual base salary. Your contribution and the company‟s contribution are a part of the above package. Kindly note portion of the employer PF contribution goes to retirement and pension scheme."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="567" width="430" height="30"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Employer contribution to Gratuity -</b>On completion of 5years of uninterrupted service with the company you will be eligible for gratuity as per the payment of Gratuity Act."]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="55" y="54" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="55" y="73" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="55" y="93" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+		</band>
+		<band height="620" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="13" width="430" height="20"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Calibri" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Medical Insurance"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" vAlign="Bottom">
+				<reportElement isPrintRepeatedValues="false" x="50" y="14" width="14" height="14" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="70" y="33" width="14" height="14" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="70" y="71" width="14" height="14" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip">
+				<reportElement isPrintRepeatedValues="false" x="70" y="147" width="14" height="14" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="35" width="410" height="36"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Medical Insurance for Self and Family –</b> Diksha provides comprehensive medical insurance benefit to the employee, spouse and children of the employee. This also includes maternity benefit and baby cover from date of birth."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="73" width="410" height="75"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Medical Insurance for Parents/Parent-In-laws -</b> In addition to this, Diksha has extended its coverage to parents as an added benefit for all employees. This insurance cover is sponsored by the employee. The advantage for employees is the affordability of premium, where employees can extend their medical benefits to their dependents by adding them under group coverage at a minimum cost. This is issued during the month of April each year"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="150" width="410" height="30"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Personal Accident and Life Insurance -</b>Diksha also provides Insurance for the employee (self and spouse) for personal accident and life insurance."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="85" y="193" width="415" height="20"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Mediclaim Policy                 300,000.00     Applicable to Self, Spouse & upto 2 children"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="85" y="213" width="415" height="20"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Personal Accident Policy    200,000.00      Applicable to Self & Spouse"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="50" y="244" width="450" height="20"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["D - Variable Component"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Center">
+				<reportElement isPrintRepeatedValues="false" x="70" y="263" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600" backcolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="267" width="410" height="61"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Performance linked Bonus -</b> You will be eligible to participate in the company's performance linked bonus program as per the company policy, provided you are on the rolls of the company and you are not serving the notice period at the time of payout. The bonus is issued based on the Company's and the employee's performance and growth and will be paid at the sole discretion of the Management."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="90" y="326" width="14" height="14" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="90" y="373" width="14" height="14" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="110" y="328" width="390" height="47"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Quarterly Performance linked Bonus (QPLB) –</b>This is paid on a quarterly basis. This will be paid based on your performance and the recommendation of your reporting manager. Reporting Manager decides what percentage of the stipulated amount will be awarded."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="110" y="374" width="390" height="59"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Company Performance linked Bonus (CPLB) –</b>This will be paid annually during the end of each financial year (April). At the time of disbursement (cut-off date: 31 March) the employee should have completed at least 6 months of service. CPLB will be paid on a pro - rata basis. CPLB is at the sole discretion of Vice President-Operations."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="70" y="431" width="14" height="14" isRemoveLineWhenBlank="true"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="433" width="410" height="15"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Per Diem - </b>This is given to deputed employees in order to cover day-to-day expenses."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="576" width="410" height="24"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERDIEM_TYPE}==1 ?"Per Diem is paid to you while you are on project work and on all days of the month including weekends and Holidays.":""]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="91" y="605" width="409" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PERDIEM_TYPE}==2 ?"Per Diem paid on all days of the month including weekends and Holidays.":""]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement mode="Transparent" x="36" y="475" width="483" height="90">
+					<printWhenExpression><![CDATA[($F{PERDIEM}==null || $F{PERDIEM}.trim()=="")]]></printWhenExpression>
+				</reportElement>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/Empty.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement positionType="Float" x="75" y="183" width="426" height="1"/>
+			</line>
+			<line>
+				<reportElement x="73" y="240" width="426" height="1"/>
+			</line>
+			<subreport>
+				<reportElement isPrintRepeatedValues="false" x="50" y="447" width="450" height="128" isRemoveLineWhenBlank="true"/>
+				<subreportParameter name="CANDIDATE_ID">
+					<subreportParameterExpression><![CDATA[$P{CANDIDATE_ID}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="PERDIEM">
+					<subreportParameterExpression><![CDATA[($F{PERDIEM}!=null && $F{PERDIEM}.trim()!="")?$F{PERDIEM}.trim():""]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="LOCATION">
+					<subreportParameterExpression><![CDATA[$F{LOCATION}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "perdiem_subreport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="620">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="50" y="11" width="450" height="27"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Flexi Benefit Plan - Explained"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="50" y="40" width="450" height="73"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The FBP will be paid to you as part of your salary, you can split the FBP under the below mentioned components according to your preference and tax plan. You would be eligible for tax exemption under components as per the rules defined by the Income Tax act. You can opt into or out of the Flexi benefits plan by modifying your declarations. If you do not wish to take any of the benefits covered under FBP the amount will be paid under the heading ‘other allowance’ and is taxable."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Right" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="50" y="121" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_up_arrow.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="120" width="430" height="16"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Medical Reimbursement"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="139" width="410" height="12"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The medical expenses reimbursed are tax-exempted up to Rs 15,000 per year."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="154" width="410" height="12"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Payments are reimbursed against submission of medical expense proof."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="170" width="410" height="24"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The medical expenses may include the hospitalization expenses of the employee and his/her family."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Right" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="50" y="198" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_up_arrow.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="70" y="198" width="430" height="16"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Meal Voucher"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="90" y="218" width="410" height="15"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["You are eligible to avail meal vouchers up to Rs 2200.00 per month from your FBP."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="70" y="240" width="430" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Leave Travel Allowance (LTA)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="264" width="410" height="15"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["LTA is paid to meet travel expenses incurred by you and your family members."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="281" width="410" height="15"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Employees are eligible for LTA, provided the leave is availed as per the leave policy."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="300" width="410" height="25"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["LTA covers only travel costs and not the entire cost of the holiday. To claim your LTA, you will be required to submit a copy of the travel tickets."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="328" width="410" height="15"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["LTA Tax exemption can be availed twice in four years."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Right" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="52" y="350" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_up_arrow.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="70" y="349" width="430" height="16"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Child Education Allowance"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="369" width="410" height="25"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["An amount of Rs.200 per child per month up to 2 children is eligible for reimbursement. An additional of Rs.300 is allowed in case the child is housed in a hostel."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Right" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="50" y="401" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_up_arrow.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="70" y="400" width="430" height="16"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Telephone Allowance"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="421" width="410" height="26"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The Telephone allowance benefit is provided as per the limit prescribed in the FBP eligibility table"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="448" width="410" height="25"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The actual telephone usage bills including mobile and landline can be provided for reimbursement and this component is exempt from tax as per IT act."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Right" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="50" y="477" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_up_arrow.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement isPrintRepeatedValues="false" x="70" y="477" width="430" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Transport Allowance"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="499" width="410" height="26"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The Transport allowance benefit is provided as per the limit prescribed in the FBP eligibility table"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="526" width="410" height="26"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Car fuel and maintenance expenses under FBP will be reimbursed subject to submission of actual bills."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Right" vAlign="Middle">
+				<reportElement isPrintRepeatedValues="false" x="50" y="556" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_up_arrow.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="70" y="555" width="430" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Other Allowance"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="572" width="410" height="25"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["The amount remaining after utilization towards all the other above FBP components will be paid to you as an “Other allowance” after the tax deduction."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="90" y="600" width="410" height="15"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Other allowance will be paid every month."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Right" vAlign="Middle">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="50" y="241" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_up_arrow.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="264" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="155" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="219" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="499" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="172" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="139" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="328" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="281" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="421" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="300" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="449" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="369" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="526" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="574" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="75" y="599" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+		</band>
+		<band height="620">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="25" width="450" height="25"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Additional allowance:"]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="50" y="137" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600" backcolor="#FF3300"/>
+				<imageExpression class="java.lang.String"><![CDATA[($F{RELOCATION_BONUS}==null||$F{RELOCATION_BONUS}==""||$F{RELOCATION_BONUS}).equals("0")?"/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/Empty.png":"/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="71" y="136" width="430" height="53" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{RELOCATION_BONUS}==null||$F{RELOCATION_BONUS}==""||$F{RELOCATION_BONUS}.equals("0"))?"":"<b>Relocation Allowances -</b>You will be reimbursed for expenses of your relocation to "+$F{RELOCATION_PLACE}+" from your current location up to a maximum amount of Rs."+$F{RELOCATION_BONUS}+"/- against submission of bills and tickets."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="50" y="188" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600" backcolor="#FF3300"/>
+				<imageExpression class="java.lang.String"><![CDATA[($F{JOINING_BONUS_AMOUNT}==null||$F{JOINING_BONUS_AMOUNT}==""||$F{JOINING_BONUS_AMOUNT}.equalsIgnoreCase("0"))?"/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/Empty.png":"/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="71" y="188" width="430" height="63" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{JOINING_BONUS_AMOUNT}==null||$F{JOINING_BONUS_AMOUNT}==""||$F{JOINING_BONUS_AMOUNT}.equalsIgnoreCase("0"))?"":"<b>Joining Bonus -</b> In addition to the above, you will also be entitled to a sign-on bonus of Rs."+$F{JOINING_BONUS_AMOUNT}+"/-(fully taxable) only if you join on or before <b>"+$F{JOINING_BONUS_STRING}+".</b>In the event that you resign from employment within the probationary perperiod, you will pay back the entire amount paid to you as relocation allowance and joining bonus."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="50" y="251" width="20" height="15" isRemoveLineWhenBlank="true" forecolor="#FF6600" backcolor="#FF3300"/>
+				<imageExpression class="java.lang.String"><![CDATA[($F{RETENTION_BONUS}==null||$F{RETENTION_BONUS}==""||$F{RETENTION_BONUS}.equalsIgnoreCase("0"))?"/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/Empty.png":"/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="71" y="250" width="430" height="43"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[($F{RETENTION_BONUS}==null||$F{RETENTION_BONUS}==""||$F{RETENTION_BONUS}.equalsIgnoreCase("0"))?"":"<b>Retention Bonus -</b> On completion of 1 year of uninterrupted service with the organization you will be entitled for a retention bonus of Rs."+$F{RETENTION_BONUS}+"/-."]]></textFieldExpression>
+			</textField>
+			<image scaleImage="Clip" hAlign="Center" vAlign="Middle">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="50" y="53" width="14" height="14" isRemoveLineWhenBlank="true" forecolor="#FF6600" backcolor="#FF3300"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_arrow_bullet.jpg"]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="71" y="53" width="430" height="72"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Travel and Accommodation -</b> Diksha Technologies expects its employees to travel expeditiously and comfortably to meet the needs of business. Diksha will make the required travel arrangements and you will be provided with transit accommodation for the first 1 week of your stay at your deputation location or expenses incurred by you will be reimbursed in accordance with Company policy and eligibility. Per-diem will not be paid for company provided accommodation."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="300" width="450" height="25"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Required Documents"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="326" width="450" height="38"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Please upload the copy of the below mentioned documents in LYNX (Diksha Portal).Please ensure that on the day of reporting you will bring the originals of the following documents for our verification and records"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="91" y="368" width="410" height="30"/>
+				<textElement textAlignment="Justified" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Education Certifications - 10th & 12th - Mark sheet and Certificate (mandatory), Degree and post-graduation - All Semester Mark sheets & certificates (as applicable) (mandatory)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="91" y="403" width="410" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Experience & Relieving Certificates - All the previous employer(s) (mandatory)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="91" y="428" width="410" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Photograph-ID proof – Driver License/Voter ID/Passport/Aadhaar Card (any one is mandatory)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="91" y="453" width="410" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Permanent Address proof (mandatory)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="91" y="478" width="410" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["PAN Card (mandatory))"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="91" y="504" width="410" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Valid Passport Copy, if available (if not please apply immediately)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="91" y="531" width="410" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Form – 16 (if applicable)"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="91" y="557" width="410" height="20"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Two copies of your recent passport size photographs (mandatory)"]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="77" y="454" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="77" y="429" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="77" y="404" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="77" y="369" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="77" y="558" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="77" y="479" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="77" y="533" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="77" y="505" width="10" height="10"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_bullet_circle.jpg"]]></imageExpression>
+			</image>
+		</band>
+		<band height="620">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="13" width="450" height="80"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Policy -</b>Your employment will be governed by the rules, regulations and policies of the Company. This letter and accompanying Annexures will summarize significant matters pertaining to your employment and other benefits which are provided to the employees here at Diksha Technologies. The other terms and conditions of employment are enclosed in Annexure 2A and Annexure 2B."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="95" width="450" height="54"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Terms and conditions and NDA -</b>As per Company policy, you would be required to sign Annexure 2A and Annexure 2B at the time of joining , which includes Terms and Conditions of the Employment and No-Conflict-of-Interest and obligations and a Standard Confidentiality and Non-Disclosure Agreement(to protect classified/proprietary information)."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="151" width="450" height="66"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Back Ground Verification -</b> This offer of employment is contingent upon fulfilling the background verification process that the organization will conduct. Diksha may, at its discretion conduct background checks prior to joining or anytime during the term of your employment to validate your identity, permanent/residing address, education details, all prior work experience and criminal checks. You expressly consent to the Company conducting such background checks. For more details refer to Annexure 2A."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="217" width="450" height="53"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["<b>Confidential -</b>The terms of your employment and compensation information are confidential. We request you to use discretion in handling your compensation related information. As a company policy, we forbid sharing this information with other employees or unauthorized personnel. Any violation of this will be treated as a serious matter by the company."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="270" width="450" height="56"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We are in no doubt that you are fully aware of the scope, responsibility and challenge inherent in this job. With your education and experience, we are sure that you will find your employment with us very rewarding and satisfying. On the date of joining, please sign on our copy of this letter along with Annexure 2A & 2B as acceptance of this Offer letter."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="330" width="450" height="26"/>
+				<textElement verticalAlignment="Middle" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["We will be very delighted to have you as a member of our team, looking forward to your joining us."]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="442" width="100" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Shambhavi.H.S"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="379" width="100" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Yours sincerely,"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="399" width="171" height="15"/>
+				<textElement markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["For Diksha Technologies Pvt. Ltd.,"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="51" y="459" width="121" height="15"/>
+				<textElement verticalAlignment="Top" markup="styled">
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Senior Manager - RMG"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="341" y="399" width="77" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Accepted by:"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="341" y="442" width="77" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Name"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement stretchType="RelativeToTallestObject" isPrintRepeatedValues="false" x="341" y="459" width="77" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="10" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Date:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="55" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}>1)]]></printWhenExpression>
+			<textField>
+				<reportElement x="0" y="31" width="151" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="styled">
+					<font fontName="Calibri" size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Strictly Private & Confidential"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="151" y="43" width="289" height="1" forecolor="#FF8000" backcolor="#FF8000"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#FF8000"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="532" y="-607" width="2" height="600" forecolor="#FF6600"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="442" y="1" width="101" height="50"/>
+				<imageExpression class="java.lang.String"><![CDATA["/opt/dev-env/praya-java/ApacheTomcat6/lib/portal/jasper/offer_letter-rmg_logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

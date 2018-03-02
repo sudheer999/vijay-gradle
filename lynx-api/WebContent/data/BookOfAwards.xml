@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<actionForm>
+	<dropdown>
+		<year>Antares</year>
+		<Award>
+			<category>1</category>
+			<categoryName>Antares</categoryName>
+			<userslist>
+				<label>Anil K.S.</label>
+				<label>Madhan. V </label>
+				<label>Umesha.M.N</label>
+				<label>Abhishek Mishra</label>
+				<label>Abrar Ahmed Jamadar</label>				
+			</userslist>
+			<department>general</department>
+		</Award>			
+	</dropdown>	
+	<dropdown>
+		<year>2010</year>		
+		<Award>
+			<category>2</category>
+			<categoryName>Key Contributor</categoryName>
+			<userslist>
+				<label>Venkatasubramaniam</label>
+				<label>Abhishek Chaudhuri</label>
+				<label>Bimal Cyriac</label>
+				<label>Lokanuraag</label>
+				<label>Anvitha AS</label>
+				<label>Nithesh TN</label>
+				<label>Prasath Ramaraj</label>
+				<label>Selvan Nachimuthu</label>
+				<label>Anoop KB</label>
+				<label>Natesh</label>
+				<label>Durgaprasad</label>
+			</userslist>
+			<department>general</department>
+		</Award>
+		<Award>
+			<category>3</category>
+			<categoryName>Star Performer</categoryName>
+			<userslist>
+				<label>Pradeep TR</label>
+				<label>Pratheep Kumar</label>
+				<label>Pramod Kulkarni</label>
+				<label>Bramhanand CP</label>
+				<label>Girish Kumar</label>
+				<label>Rahul V</label>
+				<label>Vinay K</label>
+				<label>Vinuthan BN</label>
+				<label>Bheemasena</label>
+				<label>Sandip Singh</label>
+				<label>Sandeep Nath</label>
+				<label>Venkat NR</label>
+				<label>Harish</label>
+				<label>Aruna</label>
+			</userslist>
+			<department>general</department>
+		</Award>
+		<Award>
+			<category>4</category>
+			<categoryName>Outstanding Contribution</categoryName>
+			<userslist>
+				<label>Anand CR</label>
+				<label>Shambhavi H S</label>
+				<label>Rajesh Neelakantan</label>
+				<label>Shruthi UK</label>
+				<label>Ananda B</label>
+				<label>Srikanth K S</label>
+				<label>Ravindranath</label>
+				<label>Anjana K</label>
+			</userslist>
+			<department>general</department>
+		</Award>
+	</dropdown>
+	<dropdown>
+		<year>2011</year>		
+		<Award>
+			<category>1</category>
+			<categoryName>Pinnacle</categoryName>
+			<userslist>
+				<label>Trinadh Sidda</label>
+				<label>Anil.M</label>
+				<label>Pooja Prabhu</label>
+				<label>Geetu Elizabeth Mathew</label>
+			</userslist>
+			<department>general</department>
+		</Award>
+		<Award>
+			<category>2</category>
+			<categoryName>Ace</categoryName>
+			<userslist>
+				<label>Ravit Teja Prabhu</label>
+				<label>Aditya A D</label>
+				<label>Arun K B</label>
+				<label>Bharath Bhushan</label>
+				<label>Kiran</label>
+				<label>Rohit Gupta</label>
+				<label>Amit Kumar</label>
+				<label>Gaurav Bhatnagar</label>
+				<label>Suresh Kumar</label>
+				<label>Reddy Vara Prasad</label>
+				<label>Kousik</label>
+				<label>Pankaj Bajpai</label>
+			</userslist>
+			<department>general</department>
+		</Award>
+		<Award>
+			<category>3</category>
+			<categoryName>Zennith</categoryName>
+			<userslist>
+				<label>Sandeep Singh</label>
+				<label>Aashutosh Mehta</label>
+				<label>Arun Kumar Subbiah T.M.</label>
+			</userslist>
+			<department>general</department>
+		</Award>
+		<Award>
+			<category>4</category>
+			<categoryName>Summit</categoryName>
+			<userslist>
+				<label>Abhishek Dutta</label>
+				<label>Ananda.B</label>
+			</userslist>
+			<department>general</department>
+		</Award>
+		<Award>
+			<category>5</category>
+			<categoryName>Sapphire</categoryName>
+			<userslist>
+				<label>Kishore Kumar R</label>
+				<label>Jayanth S S R</label>
+				<label>Pawan Bajaj</label>
+				<label>Madhavrao Chintala</label>
+				<label>Abu Bakkar</label>
+				<label>Gaurav Tiwari</label>
+				<label>Jerry Andrew Pathaw</label>
+				<label>K. Santhosh Kumar</label>
+				<label>Pankaj Bajpai</label>
+				<label>Ravi Ranjan</label>
+				<label>Arun K B</label>
+				<label>Raghavendra K H</label>
+				<label>Ritesh Sudhakar</label>
+				<label>Swaminathan K</label>
+				<label>Eksa Mani Tripathi</label>
+				<label>Amit Agarwal</label>
+			</userslist>
+			<department>general</department>
+		</Award>
+		<Award>
+			<category>6</category>
+			<categoryName>Blaze</categoryName>
+			<userslist>
+				<label>Ranjay Kumar Choubey</label>
+				<label>Devendra Mithu Rara</label>
+				<label>Rajesh Manumanthu</label>
+				<label>Preena KP</label>
+				<label>Mallesh</label>
+				<label>Srikanth Mutyala</label>
+				<label>Girish Kumar B.S.</label>
+				<label>Mohammed Shahid Hussain</label>				
+			</userslist>
+			<department>general</department>
+		</Award>
+		<Award>
+			<category>7</category>
+			<categoryName>10 years</categoryName>
+			<userslist>
+				<label>Anil KS</label>
+				<label>Natesh BJ</label>
+				<label>Srikanth KS</label>
+				<label>Madhan Vasudevan</label>
+			</userslist>
+			<department>general</department>
+		</Award>
+		<Award>
+			<category>1</category>
+			<categoryName>Out of the box thinking</categoryName>
+			<userslist>
+				<label>Lalasa</label>
+			</userslist>
+			<department>products</department>
+		</Award>
+		<Award>
+			<category>2</category>
+			<categoryName>Best Team Player</categoryName>
+			<userslist>
+				<label>Suresh Yarrabothu</label>
+			</userslist>
+			<department>products</department>
+		</Award>
+		<Award>
+			<category>3</category>
+			<categoryName>Most Popular Guy</categoryName>
+			<userslist>
+				<label>Manish Singh</label>
+			</userslist>
+			<department>products</department>
+		</Award>
+		<Award>
+			<category>4</category>
+			<categoryName>Technical ability</categoryName>
+			<userslist>
+				<label>Javahar Munama</label>
+			</userslist>
+			<department>products</department>
+		</Award>
+	</dropdown>
+</actionForm>

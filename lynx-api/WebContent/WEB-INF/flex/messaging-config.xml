@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service id="message-service" 
+    class="flex.messaging.services.MessageService">
+<!--    <adapters>-->
+<!--        <adapter-definition id="InboxPushAdapter" class="com.dikshatech.common.utils.InboxCountAdapter"/>-->
+<!--    </adapters>-->
+<!--    <default-channels>-->
+<!--        <channel ref="my-polling-amf"/>-->
+<!--    </default-channels>    -->
+<!--    <destination id="InboxPush">-->
+<!--    	<channels>-->
+<!--  			<channel ref="my-streaming-amf" /> -->
+<!--  		</channels>-->
+<!--  		<adapter ref="InboxPushAdapter"/>-->
+<!--    </destination>-->
+</service>

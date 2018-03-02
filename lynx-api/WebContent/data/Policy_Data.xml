@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policies>
+	<policy pid="1" name="Holiday List - 2016 - US" description="List of Holidays for the year 2016. Kindly note that Holidays while on deputation will be as per the declaration made by the respective clients." 
+	url="/DikshaPortalv2.0/data/2016_US_Holiday_list.PDF"  department="All Departments" region="US" src="assets/images/Policies/policies_holidays_us.png"/>
+	<policy pid="2" name="Holiday List - 2017 - Bengaluru Hubballi"  description="List of Holidays for the year 2017. Kindly note that Holidays while on deputation will be as per the declaration made by the respective clients."
+	url="/DikshaPortalv2.0/data/Diksha-HolidayList_2017.pdf" department="All Departments" region="Bengaluru, Hubballi" src="assets/images/Policies/policies_holidays_India.png"/>
+    <policy pid="3" name="Holiday List - 2017 - NCR"  description="List of Holidays for the year 2017. Kindly note that Holidays while on deputation will be as per the declaration made by the respective clients."
+	url="/DikshaPortalv2.0/data/2017_Diksha_NCR_Holiday_list.pdf" department="All Departments" region="NCR, India" src="assets/images/Policies/policies_holidays_India.png"/>
+    
+	<policy pid="4" name="Employee Orientation Program" description="Know more about Diksha and how we operate." 
+	url="/DikshaPortalv2.0/data/Diksha-RMG-2012-EmployeeOrientationProgram.pdf" department="All Departments" region="India"
+	src="assets/images/Policies/policies_employee_organisation.png"/>
+	<policy pid="5" name="Rewards &amp; Recognition Policy" description="The Rewards and Recognition program recognizes employees' reward-worthy performances, skills/ competence and overall contribution to Diksha's growth."
+	url="/DikshaPortalv2.0/data/Diksha_RMG_2012_Rewards_and_recognition_policy.pdf" department="All Departments" region="India"
+	src="assets/images/Policies/policies_rewards.png"/>
+	<policy pid="6" name="Diksha Organization Structure" description="The new organisation structure with redesigned levels and grades." 
+	url="/DikshaPortalv2.0/data/Diksha_Organisation_structure.jpg" department="All Departments" region="India"
+	src="assets/images/Policies/policies_organization_structure.png"/>
+	
+	<policy pid="7" name="USA Deputation" description="Provides information on visa interview, application process &amp; documentation for work related travel to US" url="com/dikshatech/views/modules/mylinks/USADeputation_Module.swf" 
+	department="All Departments" region="India"
+	src="assets/images/Policies/policies_usa_deputation.png"/>
+	
+	<policy pid="8" name="Employee Handbook - 2013" description="Provides detailed information regarding the various policies and procedures followed at Diksha" 
+	url="/DikshaPortalv2.0/data/Diksha - RMG - 2013 - Employee Handbook.pdf" department="All Departments" region="India"
+	src="assets/images/Policies/policies_hand_book.png"/>
+</policies>

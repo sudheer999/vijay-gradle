@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bankletter1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="154"/>
+	<parameter name="MONTH" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[name]]></fieldDescription>
+	</field>
+	<field name="account_no" class="java.lang.String">
+		<fieldDescription><![CDATA[account_no]]></fieldDescription>
+	</field>
+	<field name="tran_amt" class="java.lang.String">
+		<fieldDescription><![CDATA[tran_amt]]></fieldDescription>
+	</field>
+	<field name="tran_part" class="java.lang.String">
+		<fieldDescription><![CDATA[tran_part]]></fieldDescription>
+	</field>
+	<variable name="Total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[java.lang.Double.parseDouble($F{tran_amt})]]></variableExpression>
+	</variable>
+	<group name="Page_Number_Group">
+		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
+		<groupHeader>
+			<band height="237">
+				<staticText>
+					<reportElement x="163" y="0" width="228" height="20"/>
+					<textElement textAlignment="Center">
+						<font fontName="Trebuchet MS" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[DIKSHA TECHNOLOGIES PVT LTD]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="444" y="33" width="100" height="15"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="23" y="35" width="100" height="15"/>
+					<textElement>
+						<font fontName="Trebuchet MS" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ICICI Bank Limited]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="23" y="50" width="100" height="15"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<text><![CDATA[M G ROAD]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="23" y="64" width="100" height="15"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<text><![CDATA[BANGALORE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="23" y="78" width="100" height="15"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<text><![CDATA[560001]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="23" y="110" width="100" height="20"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<text><![CDATA[Dear Sir,]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="23" y="160" width="458" height="45"/>
+					<textElement lineSpacing="Single" markup="html">
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<text><![CDATA[Kindly credit the following Savings Bank A/C with you,with the individual amounts shown against them and debit our account number <b>625151001018</b> with you for the total amount is enclosed.]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="34" y="217" width="430" height="20" forecolor="#322D2D" backcolor="#AFA6A6"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="270" y="220" width="95" height="15"/>
+					<textElement>
+						<font fontName="Trebuchet MS" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Account No]]></text>
+				</staticText>
+				<line>
+					<reportElement x="369" y="217" width="1" height="20"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="260" y="217" width="1" height="20"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="81" y="220" width="150" height="15"/>
+					<textElement>
+						<font fontName="Trebuchet MS" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="37" y="220" width="30" height="15" forecolor="#000000" backcolor="#AFA6A6"/>
+					<textElement>
+						<font fontName="Trebuchet MS" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sl No]]></text>
+				</staticText>
+				<line>
+					<reportElement x="71" y="217" width="1" height="20"/>
+					<graphicElement>
+						<pen lineWidth="0.5"/>
+					</graphicElement>
+				</line>
+				<staticText>
+					<reportElement x="383" y="220" width="72" height="15"/>
+					<textElement textAlignment="Right">
+						<font fontName="Trebuchet MS" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Amount ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="24" y="135" width="232" height="16"/>
+					<textElement>
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Ref: Salary for the month of "+$P{MONTH}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="130">
+				<staticText>
+					<reportElement x="24" y="39" width="126" height="20"/>
+					<textElement/>
+					<text><![CDATA[Authorised Signatory]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="24" y="96" width="169" height="20"/>
+					<textElement/>
+					<text><![CDATA[For Diksha Technologies Pvt Ltd]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="310" y="2" width="60" height="15"/>
+					<textElement textAlignment="Right">
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Total :"]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00" isBlankWhenNull="false">
+					<reportElement x="381" y="2" width="74" height="15"/>
+					<textElement textAlignment="Right">
+						<font fontName="Trebuchet MS"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{Total}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="146" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="37" y="3" width="30" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="3" width="150" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="3" width="95" height="15"/>
+				<textElement>
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{account_no}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="374" y="3" width="81" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Top">
+					<font fontName="Trebuchet MS"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Double"><![CDATA[java.lang.Double.parseDouble($F{tran_amt})]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="34" y="0" width="430" height="20" forecolor="#322D2D" backcolor="#FFFFFF"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="71" y="0" width="1" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="260" y="0" width="1" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="369" y="0" width="1" height="20"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="9" y="12" width="302" height="10" forecolor="#918A8A"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="6" isBold="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Generated by Diksha Lynx on
+]]></text>
+			</staticText>
+			<textField pattern="EEE, d MMM yyyy HH:mm:ss z">
+				<reportElement x="89" y="12" width="215" height="10" forecolor="#918A8A"/>
+				<textElement>
+					<font fontName="Trebuchet MS" size="6" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="2" width="80" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Trebuchet MS" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="504" y="2" width="40" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Trebuchet MS" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="7" splitType="Stretch"/>
+	</summary>
+</jasperReport>

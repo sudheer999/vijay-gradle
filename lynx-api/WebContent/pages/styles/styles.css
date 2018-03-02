@@ -1,0 +1,275 @@
+@charset "utf-8";  
+/* CSS Document */
+/* html, body{height:100%}
+body{ margin:0; padding:0; background: #f0f0f0 url(../images/home_body_bg.png) repeat-x top; font: 100% "Trebuchet MS", Verdana, Arial, sans-serif;}
+#main_container{width:1000px; margin:auto; height:auto; border:none 1px #F00}
+#main_container{width:100%; background:transparent url(../images/maincontent_bg.jpg) top no-repeat; margin: auto; font: 9pt "Trebuchet MS", Verdana, Arial, sans-serif; padding:0px}
+h1{color:#06F;}
+#header{background:url(../images/page_header.png) repeat-x; height:44px;}
+#logoContainer{width:168px; height:44px; background:url(../images/logo_bg.png) no-repeat; vertical-align:middle; }
+#content_holder{background-color:#EFEFEF; font: 9pt Arial, Helvetica, sans-serif;}
+#content{background-color:#FFF; font: 9pt Arial, Helvetica, sans-serif; float:left; margin-top:0px; margin-left:0px; line-height:150%; margin-right:0px; border: 1px solid #d0d0d0; width:100%;}
+#content1{background-color:#FFF; font: Arial, Helvetica, sans-serif; float:left; margin-top:10px; padding-left:15px; padding-right:15px; border: 1px solid #d0d0d0; width:auto;}
+#left_menu{width:178px; float:left; border: 1px solid #d0d0d0; background-color:#FFF; margin-left:0px; margin-top:0px;}
+#right_menu{clear:right; border: 1px solid #d0d0d0; background-color:#fff; width:230px; float:right; margin-right:0px; margin-top:0px; height:auto; padding:15px 15px; padding-top:0px; }
+#question{font-size: 12pt; font-family: Arial, Helvetica, sans-serif; font-weight:bold;}
+#footer{background:url(../images/footer_bg.png) repeat-x #c3d5e9; height:16px}
+#left_menu_item1{background:url(../images/01_home_mnu_item.png) no-repeat #efefef; height:30px}
+#left_menu_item2{background:url(../images/02_tasks_mnu_item.png) no-repeat #efefef; height:30px}
+#left_menu_item3{background:url(../images/03_mylinks_mnu_item.png) no-repeat #efefef; height:30px}
+#left_menu_item3_1{background:url(../images/03_1_mylinks_mnu_item.png) no-repeat #fff; height:46px}
+#left_menu_item4{background:url(../images/04_requests_mnu_item.png) no-repeat #efefef; height:30px}
+#left_menu_item4_1{background:url(../images/04_1_requests_mnu_item.png) no-repeat #fff; height:138px}
+#left_menu_item5{background:url(../images/05_requests_mnu_item.png) no-repeat #efefef; height:30px}
+#left_menu_item5_1{background:url(../images/05_1_requests_mnu_item.png) no-repeat #fff; height:23px}
+#left_menu_item6{background:url(../images/06_admin_mnu_item.png) no-repeat #efefef; height:30px}
+#left_menu_item6_1{background:url(../images/06_1_admin_mnu_item.png) no-repeat #fff; height:184px}
+#left_menu_item7{background:url(../images/07_tat_mnu_item.png) no-repeat #efefef; height:30px}
+#left_menu_item7_1{background:url(../images/07_1_tat_mnu_item.png) no-repeat #fff; height:23px}
+#left_menu_item8{background:url(../images/08_hr_mnu_item.png) no-repeat #efefef; height:30px}
+#left_menu_item8_1{background:url(../images/08_1_hr_mnu_item.png) no-repeat #fff; height:92px}
+#left_menu_item9{background:url(../images/09_project_mnu_item.png) no-repeat #efefef; height:30px}
+#left_menu_item9_1{background:url(../images/09_1_project_mnu_item.png) no-repeat #fff; height:92px}
+HR{ border:0px; height:1px; background-color:#d0d0d0;  margin:: 10px 0px; }
+H4{color:#202020; display:block; font-family:Arial; font-size:13px; font-weight:bold; line-height:100%; text-transform:uppercase; margin-top:15px; margin-right:0; margin-bottom:10px; margin-left:0; text-align:left;
+}
+#awards,#awards1,#awards2 {display:inline; height:auto; color:#505050; font-family: Arial; font-size:12px; line-height:150%; text-align:left; margin-bottom:0px;}
+*## buttons container ##*
+#reject_confrim{background-color:#fff; color:#000; font-family:Arial, Helvetica, sans-serif; font-size:13px; font-weight:normal; text-align:left; width:100%; height:32px; text-decoration:none; }
+#accept_btn, #accept_btn a:visited, #accept_btn a{
+	background: url(http://www.dikshatech.com/images/newportal_images/accept_btn_bg.png) #326ead no-repeat;
+	background-color: #12ace7;
+}
+#todecide_btn, #todecide_btn a:visited, #todecide_btn a{
+	background-color: #32d242;
+}
+#accept_btn a:hover, #reject_btn a:hover, #todecide_btn a:hover{
+	text-decoration:underline;
+}
+#reject_btn, #reject_btn a:visited, #reject_btn a {
+	background: url(http://www.dikshatech.com/images/newportal_images/reject_btn_bg.png) #ea6834 no-repeat;
+	background-color: #555c64;
+}
+#reject_btn, #reject_btn a:visited, #reject_btn a, #todecide_btn, #todecide_btn a:visited, #todecide_btn a, #accept_btn, #accept_btn a:visited, #accept_btn a {
+	color:#FFFFFF;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	font-weight:bold;
+	text-align:center;
+	padding: 8px 10px;
+	text-decoration:none;
+}
+
+Tabs
+UL.tabNavigation {
+	list-style: none;
+	margin: 0px;
+	padding: 0;
+	padding-left:8px;
+	clear:both;
+}
+
+UL.tabNavigation LI {
+	display: inline;
+}
+
+UL.tabNavigation LI A {
+	padding: 6px 13px;
+	background-color: #201f2d;
+	font-size:11px;
+	color: #fff;
+	font-weight:bold;
+	text-decoration: none;
+	border-top: #201f2d 1px solid;
+	border-right: #201f2d 1px solid;
+	border-left: #201f2d 1px solid;
+}
+
+UL.tabNavigation LI A.selected,
+UL.tabNavigation LI A:hover {
+	background-color: #fff;
+	font-size:11px;
+	color: #333;
+	padding-top: 10px;
+	font-weight:bold;
+	border-top: #fa8512 3px solid;
+	border-right: #d0d0d0 1px solid;
+	border-left: #d0d0d0 1px solid;
+}
+
+UL.tabNavigation LI A:focus {
+	outline: 0;
+}
+
+div.tabs > div {
+	padding: 15px;
+	margin-top: 5px;
+	border: 1px solid #d0d0d0;
+	background-color:#FFF;
+	 line-height:150%;
+} */
+
+
+
+
+
+
+/* ============================================================
+   MEET OUR PEOPLE PAGE DESIGN GLOBAL
+============================================================ */
+.effects {    
+  /* padding-left: 15px; */
+}
+.effects .img {
+  position: relative;
+  float: left;
+  margin-bottom: 5px;
+  /* width: 25%; */   
+  overflow: hidden;
+}
+.effects .img:nth-child(n) {
+  margin-right: 5px;
+}
+.effects .img:first-child {
+  /* margin-left: -15px; */
+}
+.effects .img:last-child {
+  margin-right: 0;
+}
+.effects .img img {
+  display: block;  
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  height: auto;
+}
+  
+.overlay {
+  display: block;
+  position: absolute;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+a.close-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 45px;
+  text-align: center;
+  background-color: #000;
+  cursor: pointer;
+}
+a.close-overlay.hidden {
+  display: none;
+}
+
+.expand {
+	color: #fff;  
+	text-align: center;
+	font-weight: 700;
+}  
+
+ a.expand {
+  display: block;  
+  position: absolute;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
+  border: solid 5px #fff;
+  text-align: center;
+  color: #fff;
+  line-height: 50px;
+  font-weight: 700;
+  font-size: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border-radius: 30px;
+}
+/* ============================================================
+  EFFECT 3 - SLIDE IN LEFT
+============================================================ */
+#effect-3 .overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+}
+/* #effect-3 .overlay a.expand {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin: auto 0 auto -30px;
+} */
+#effect-3 .img.hover .overlay {
+  width: 85%;
+  margin-left: 15px;
+  /* margin-right: 15px; */
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Media Queries
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+@media only screen and (max-width: 1100px) {
+  .effects {
+    padding-left: 5px;
+  }
+  .effects .img {
+    width: 50%;
+  }
+  .effects .img:nth-child(n) {
+    margin-right: 5px;
+  }
+  .effects .img:first-child {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n-1) {
+    margin-left: -5px;
+  }
+  .effects .img:nth-child(2n) {
+    margin-right: 0;
+  }
+  .effects .img:last-child {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .effects .img {
+    width: 100%;
+  }
+  .effects .img:nth-child(n) {
+    margin-right: 0;
+  }
+  .effects .img:first-child {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n-1) {
+    margin-left: 0;
+  }
+  .effects .img:nth-child(2n) {
+    margin-right: 0;
+  }
+  .effects .img:last-child {
+    margin-right: 0;
+  }
+  .effects .img img {
+    margin: 0 auto;
+  }
+}

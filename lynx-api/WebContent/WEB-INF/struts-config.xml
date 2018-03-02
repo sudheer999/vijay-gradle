@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	You under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<!-- This is a blank Struts configuration file with an example welcome action/page 
+	and other commented sample elements. Struts Validator is configured using 
+	the factory defaults and is ready-to-use. NOTE: If you have a generator tool 
+	to create the corresponding Java classes for you, you could include the details 
+	in the "form-bean" declarations. Otherwise, you would only define the "form-bean" 
+	element itself, with the corresponding "name" and "type" attributes, as shown 
+	here. -->
+
+
+<struts-config>
+
+
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+
+		<!-- sample form bean descriptor for an ActionForm <form-bean name="inputForm" 
+			type="app.InputForm"/> end sample -->
+
+		<form-bean name="portal" type="com.dikshatech.portal.forms.PortalForm">
+		</form-bean>
+
+		<form-bean name="dropdown" type="com.dikshatech.portal.forms.DropDown">
+		</form-bean>
+
+		<form-bean name="login" type="com.dikshatech.portal.dto.Login">
+		</form-bean>
+
+		<form-bean name="serreqinfoform"
+			type="com.dikshatech.portal.forms.ServiceReqSaveForm">
+		</form-bean>
+
+
+		<form-bean name="serreqinfo" type="com.dikshatech.portal.dto.ServiceReqInfo">
+		</form-bean>
+
+		<form-bean name="payslip" type="com.dikshatech.portal.dto.Payslip">
+		</form-bean>
+
+		<form-bean name="location" type="com.dikshatech.portal.dto.Location">
+		</form-bean>
+
+
+		<form-bean name="leave" type="com.dikshatech.portal.dto.LeaveMaster">
+		</form-bean>
+
+		<form-bean name="leavebalance" type="com.dikshatech.portal.dto.Leavebalance">
+		</form-bean>
+
+		<form-bean name="company" type="com.dikshatech.portal.dto.Company">
+		</form-bean>
+
+		<form-bean name="division" type="com.dikshatech.portal.dto.Divison">
+		</form-bean>
+
+		<form-bean name="regions" type="com.dikshatech.portal.dto.Regions">
+		</form-bean>
+
+		<form-bean name="calendar" type="com.dikshatech.portal.dto.Calendar">
+		</form-bean>
+		<form-bean name="regDivMap" type="com.dikshatech.portal.dto.RegDivMap">
+		</form-bean>
+
+		<form-bean name="levels" type="com.dikshatech.portal.dto.Levels">
+		</form-bean>
+
+		<form-bean name="modules" type="com.dikshatech.portal.dto.Modules">
+		</form-bean>
+
+		<form-bean name="profileinfo" type="com.dikshatech.portal.dto.ProfileInfo">
+		</form-bean>
+
+		<form-bean name="contacttype" type="com.dikshatech.portal.dto.ContactType">
+		</form-bean>
+
+		<form-bean name="candidatesave"
+			type="com.dikshatech.portal.forms.CandidateSaveForm">
+		</form-bean>
+
+		<form-bean name="candidate" type="com.dikshatech.portal.dto.Candidate">
+		</form-bean>
+
+		<form-bean name="experienceinfo" type="com.dikshatech.portal.dto.ExperienceInfo">
+		</form-bean>
+
+		<form-bean name="personalinfo" type="com.dikshatech.portal.dto.PersonalInfo">
+		</form-bean>
+
+		<form-bean name="educationinfo" type="com.dikshatech.portal.dto.EducationInfo">
+		</form-bean>
+
+		<form-bean name="financeinfo" type="com.dikshatech.portal.dto.FinanceInfo">
+		</form-bean>
+
+		<form-bean name="passportinfo" type="com.dikshatech.portal.dto.PassportInfo">
+		</form-bean>
+
+		<form-bean name="salarydetails" type="com.dikshatech.portal.dto.SalaryDetails">
+		</form-bean>
+
+		<form-bean name="roles" type="com.dikshatech.portal.dto.Roles">
+		</form-bean>
+
+		<form-bean name="rollOnOff" type="com.dikshatech.portal.dto.RollOnOff">
+		</form-bean>
+
+
+		<form-bean name="timesheet" type="com.dikshatech.portal.dto.TimeSheetDetails">
+		</form-bean>
+
+		<form-bean name="accessibility"
+			type="com.dikshatech.portal.dto.AccessibilityLevel">
+		</form-bean>
+
+		<form-bean name="clientDetails" type="com.dikshatech.portal.dto.Client">
+		</form-bean>
+
+		<form-bean name="projectDetails" type="com.dikshatech.portal.dto.Project">
+		</form-bean>
+
+		<form-bean name="processchain" type="com.dikshatech.portal.dto.ProcessChain">
+		</form-bean>
+
+		<form-bean name="inbox" type="com.dikshatech.portal.dto.Inbox">
+		</form-bean>
+		<form-bean name="nominee" type="com.dikshatech.portal.dto.NomineeInfo">
+		</form-bean>
+		<form-bean name="downloaddocs" type="com.dikshatech.portal.dto.Candidate">
+		</form-bean>
+
+		<form-bean name="downloaddocsleave" type="com.dikshatech.portal.dto.LeaveMaster">
+		</form-bean>
+
+		<form-bean name="downloaddocspayslip" type="com.dikshatech.portal.dto.Payslip">
+		</form-bean>
+
+		<form-bean name="downloadtravel" type="com.dikshatech.portal.forms.TravelForm">
+		</form-bean>
+
+		<form-bean name="projtasks" type="com.dikshatech.portal.dto.ProjTasks">
+		</form-bean>
+
+		<form-bean name="users" type="com.dikshatech.portal.dto.Users">
+		</form-bean>
+		<form-bean name="skillset" type="com.dikshatech.portal.dto.SkillSet">
+		</form-bean>
+
+		<form-bean name="inbox" type="com.dikshatech.portal.dto.Inbox">
+		</form-bean>
+
+		<form-bean name="nominee" type="com.dikshatech.portal.dto.NomineeInfo">
+		</form-bean>
+
+		<form-bean name="downloaddocs" type="com.dikshatech.portal.dto.Candidate">
+		</form-bean>
+		<form-bean name="reimbursement"
+			type="com.dikshatech.portal.dto.ReimbursementRequestForm">
+		</form-bean>
+		<form-bean name="downloadreimbursementslip"
+			type="com.dikshatech.portal.dto.ReimbursementRequestForm">
+		</form-bean>
+		<form-bean name="downloadReimbursementReport"
+			type="com.dikshatech.portal.dto.ReimbursementRequestForm">
+		</form-bean>
+
+
+		<form-bean name="rollOn" type="com.dikshatech.portal.dto.RollOn">
+		</form-bean>
+
+		<form-bean name="poDetails" type="com.dikshatech.portal.dto.PoDetails">
+		</form-bean>
+
+		<form-bean name="travel" type="com.dikshatech.portal.forms.TravelForm">
+		</form-bean>
+		<form-bean name="commitment" type="com.dikshatech.portal.dto.Commitments">
+		</form-bean>
+
+		<form-bean name="bankDetails" type="com.dikshatech.portal.dto.BankDetails">
+		</form-bean>
+
+		<form-bean name="news" type="com.dikshatech.portal.dto.News">
+		</form-bean>
+		<form-bean name="festivalwishs" type="com.dikshatech.beans.FestivalWishesBean">
+		</form-bean>
+		<form-bean name="itrequest" type="com.dikshatech.portal.dto.ItRequest">
+		</form-bean>
+
+		<form-bean name="loan" type="com.dikshatech.portal.dto.LoanDetails">
+		</form-bean>
+
+		<form-bean name="downloaditrequestattachment" type="com.dikshatech.portal.dto.ItRequest">
+
+		</form-bean>
+		<form-bean name="sodexo" type="com.dikshatech.portal.dto.SodexoDetails">
+		</form-bean>
+
+		<form-bean name="issue" type="com.dikshatech.portal.dto.RequestedIssues">
+		</form-bean>
+		<form-bean name="issuehandler"
+			type="com.dikshatech.portal.dto.IssueHandlerChainReq">
+		</form-bean>
+		<form-bean name="insurancehandler" type="com.dikshatech.beans.InsuranceBean">
+		</form-bean>
+
+		<form-bean name="appraisal" type="com.dikshatech.beans.AppraisalBean" />
+
+		<form-bean name="referfriend" type="com.dikshatech.portal.dto.ReferFriend" />
+
+		<form-bean name="downloadreferfriend" type="com.dikshatech.portal.dto.ReferFriend" />
+
+		<form-bean name="resumeManagement" type="com.dikshatech.portal.dto.ResumeManagement" />
+
+		<form-bean name="exitemployee" type="com.dikshatech.beans.ExitEmployeeBean" />
+
+		<!-- Form bean for the process chain escalation /processchainescalation.do -->
+
+		<form-bean name="escalbean" type="com.dikshatech.portal.dto.Escalation"></form-bean>
+
+		<form-bean name="faq" type="com.dikshatech.portal.dto.Faq" />
+
+
+		<form-bean name="deputation" type="com.dikshatech.portal.dto.DepPerdiem"></form-bean>
+		<form-bean name="invoice"
+			type="com.dikshatech.portal.dto.InvoiceReconciliation"></form-bean>
+
+		<form-bean name="rmgtimesheet" type="com.dikshatech.portal.dto.RmgTimeSheetReco"></form-bean>
+
+		<form-bean name="bonus"
+			type="com.dikshatech.portal.dto.BonusReconciliation"></form-bean>
+		<form-bean name="retentionbonus"
+			type="com.dikshatech.portal.dto.RetentionBonusReconciliation"></form-bean>
+
+		<!-- Form bean for the Salary Restructure and FBP -->
+
+		<form-bean name="fbp" type="com.dikshatech.portal.forms.FBPForm" />
+
+		<form-bean name="salarydeputation"
+			type="com.dikshatech.beans.SalaryReconciliationBean" />
+
+		<form-bean name="rmgtimesheetreconciliation" type="com.dikshatech.portal.dto.RmgTimeSheetReco" />
+
+
+		<form-bean name="resourcerequirement"
+			type="com.dikshatech.portal.dto.ResourceRequirement" />
+
+		<!-- Form bean for Tax benefit declaration -->
+		<form-bean name="taxBenefitDeclaration" type="com.dikshatech.portal.forms.TaxBenefitForm" />
+	</form-beans>
+	<!-- ========================================= Global Exception Definitions -->
+
+	<global-exceptions>
+		<!-- sample exception handler <exception key="expired.password" type="app.ExpiredPasswordException" 
+			path="/changePassword.jsp"/> end sample -->
+	</global-exceptions>
+
+
+	<!-- =========================================== Global Forward Definitions -->
+
+	<global-forwards>
+		<!-- Default forward to "Welcome" action -->
+		<!-- Demonstrates using index.jsp to forward -->
+		<forward name="welcome" path="/login.do" />
+		<forward name="redirect" path="/login.do" />
+		<forward name="downloadErr" path="/pages/downloadErr.jsp" />
+	</global-forwards>
+
+
+	<!-- =========================================== Action Mapping Definitions -->
+	<action-mappings>
+
+		<action path="/login" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="login" forward="success" parameter="method">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+			<forward name="DikshaTouch" path="/DikshaTouch.jsp" />
+			<forward name="DTGetAndroidUsers" path="/pages/DTGetAndroidUsers.jsp" />
+		</action>
+
+		<action path="/resourcereq" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="resourcerequirement" forward="success" parameter="method"
+			scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/logout" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="login" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/master" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="company" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/dropdown" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="dropdown" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/division" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="division" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/company" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="company" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/location" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="location" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+
+
+
+
+
+		<action path="/region" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="regions" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/calendar" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="calendar" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/regDivMap" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="regDivMap" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/profileinfo" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="profileinfo" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/candidatesave" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="candidatesave" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/candidate" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="candidate" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/experienceinfo" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="experienceinfo" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/educationinfo" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="educationinfo" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/financeinfo" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="financeinfo" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/passportinfo" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="passportinfo" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/level" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="levels" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/personalinfo" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="personalinfo" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/modules" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="modules" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/salarydetails" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="salarydetails" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/roles" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="roles" forward="success" scope="request" parameter="method">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/rollonoff" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="rollOnOff" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+
+		<action path="/accessibility" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="accessibility" forward="success" scope="request" parameter="method">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/timesheet" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="timesheet" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+
+		</action>
+
+
+		<action path="/client" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="clientDetails" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/project" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="projectDetails" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/processchain" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="processchain" forward="success" scope="request" parameter="method">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+
+		</action>
+
+		<action path="/markcandidateasemployee" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="candidate" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/generateOffer" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="candidate" forward="downloadErr" scope="request">
+		</action>
+
+
+		<action path="/nominee" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="nominee" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+
+		<action path="/inbox" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="inbox" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/offerPreview" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="candidate" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/offerPreview.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+
+		<action path="/downloaddocs" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="candidate" forward="downloadErr" scope="request">
+		</action>
+
+		<action path="/downloaddocsleave" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="leave" forward="downloadErr" scope="request">
+		</action>
+
+		<action path="/downloadtravel" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="downloadtravel" forward="downloadErr" scope="request">
+		</action>
+
+		<action path="/downloadsodexo" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="sodexo" forward="downloadErr" scope="request">
+		</action>
+
+		<action path="/downloaddocspayslip" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="payslip" forward="downloadErr" scope="request">
+		</action>
+		<action path="/payslip" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="payslip" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/leave" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="leave" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/downloaddocsuser" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="users" forward="downloadErr" scope="request">
+		</action>
+
+		<action path="/downloadtimesheet" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="timesheet" forward="downloadErr" scope="request">
+		</action>
+
+		<action path="/empserreq" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="empserreqmap" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/serreqinfo" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="serreqinfoform" forward="success" scope="request" parameter="method">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+
+		<action path="/projtasks" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="projtasks" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/users" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="users" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/skillset" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="skillset" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+
+		<action path="/rollon" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="rollOn" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/podetails" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="poDetails" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+
+		<action path="/reimbursement" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="reimbursement" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/downloadreimbursementslip" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="downloadreimbursementslip" forward="downloadErr" scope="request">
+		</action>
+		<action path="/travel" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="travel" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/loan" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="loan" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/commitment" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="commitment" forward="success" parameter="method" scope="request">
+
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/bankDetails" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="bankDetails" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/news" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="news" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/festivalwishs" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="festivalwishs" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/downloadnewsimage" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="news" forward="downloadErr" scope="request">
+		</action>
+
+		<action path="/itrequest" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="itrequest" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/downloaditrequestattachment" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="downloaditrequestattachment" forward="downloadErr" scope="request">
+		</action>
+		<action path="/sodexo" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="sodexo" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/issue" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="issue" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/issuehandler" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="issuehandler" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/contacttype" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="contacttype" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/appraisal" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="appraisal" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/referfriend" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="referfriend" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/downloadReferFrdAttachment" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="downloadreferfriend" forward="downloadErr" scope="request">
+		</action>
+
+		<action path="/insurance" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="insurancehandler" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/downloadAppraisal" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="appraisal" forward="downloadErr" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/resumeManagement" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="resumeManagement" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/downloadresume" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="resumeManagement" forward="downloadErr" scope="request">
+		</action>
+		<action path="/exitemployee" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="exitemployee" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<!-- Action Mapping for the process chain escalation /processchainescalation.do -->
+		<action path="/processchainescalation" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="escalbean" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/faq" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="faq" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/reconciliation" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="deputation" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/salaryreconciliation" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="salarydeputation" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/rmgtimesheet" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="rmgtimesheet" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/invoicereconciliation" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="invoice" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/reconciliation" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="deputation" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/bonusreconciliation" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="bonus" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/retentionbonusreconciliation" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="retentionbonus" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<!-- Action Mapping for the Salary returcture and FBP / fbp.do -->
+		<action path="/fbp" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="fbp" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/fbpreport" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="fbp" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/taxbenefit" type="com.dikshatech.portal.dispatcher.RequestHandler"
+			name="taxBenefitDeclaration" forward="success" parameter="method"
+			scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp"></forward>
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/downloadsalaryletter" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="salarydeputation" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/downloadsalarydisbursement" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="salarydeputation" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+
+		<action path="/downloadPerdiemReport" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="deputation" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/downloadReimbursementReport" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="downloadReimbursementReport" forward="success" parameter="method"
+			scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+
+
+		<action path="/downloadTimesheetReport" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="rmgtimesheetreconciliation" forward="success" parameter="method"
+			scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+		<action path="/downloadInvoiceReport" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="invoice" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/downloadBonusReport" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="bonus" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/downloadRetentionBonusReport" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="retentionbonus" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/downloadCandidateChklst" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="candidate" forward="success" parameter="method" scope="request">
+			<forward name="success" path="/pages/flexoutput.jsp" />
+			<forward name="Lynx" path="/pages/flexoutput1.jsp" />
+		</action>
+
+		<action path="/downloadresourceresume" type="com.dikshatech.portal.dispatcher.DownLoadAction"
+			name="resourcerequirement" forward="downloadErr" scope="request">
+		</action>
+
+	</action-mappings>
+	<!-- ======================================== Message Resources Definitions -->
+
+	<message-resources parameter="MessageResources" />
+
+
+	<!-- ================================================ Plug Ins Configuration -->
+
+	<!-- ======================================================= Tiles plugin -->
+	<!-- This plugin initialize Tiles definition factory. This later can takes 
+		some parameters explained here after. The plugin first read parameters from 
+		web.xml, thenoverload them with parameters defined here. All parameters are 
+		optional. The plugin should be declared in each struts-config file. - definitions-config: 
+		(optional) Specify configuration file names. There can be several comma separated 
+		file names (default: ?? ) - moduleAware: (optional - struts1.1) Specify if 
+		the Tiles definition factory is module aware. If true (default), there will 
+		be one factory for each Struts module. If false, there will be one common 
+		factory for all module. In this later case, it is still needed to declare 
+		one plugin per module. The factory will be initialized with parameters found 
+		in the first initialized plugin (generally the one associated with the default 
+		module). true : One factory per module. (default) false : one single shared 
+		factory for all modules - definitions-parser-validate: (optional) Specify 
+		if xml parser should validate the Tiles configuration file. true : validate. 
+		DTD should be specified in file header (default) false : no validation Paths 
+		found in Tiles definitions are relative to the main context. To use this 
+		plugin, download and add the Tiles jar to your WEB-INF/lib directory then 
+		uncomment the plugin definition below. <plug-in className="org.apache.struts.tiles.TilesPlugin" 
+		> <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" 
+		/> <set-property property="moduleAware" value="true" /> </plug-in> -->
+
+
+
+	<!-- =================================================== Validator plugin -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml,
+               /WEB-INF/validation.xml" />
+	</plug-in>
+
+</struts-config>
